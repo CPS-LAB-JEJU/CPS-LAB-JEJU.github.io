@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-22T23:22:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CPS LAB</title><subtitle>CPS LAB 개발자들을 위한 정보 공유 블로그
+</subtitle><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><entry><title type="html">[1000] A+B</title><link href="http://localhost:4000/algorithms/beakjoon/2023-02-22-2023-02-22-BOJ_1000_py/" rel="alternate" type="text/html" title="[1000] A+B" /><published>2023-02-22T23:22:39+09:00</published><updated>2023-02-22T23:18:25+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-22-BOJ_1000_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-02-22-2023-02-22-BOJ_1000_py/"><![CDATA[<h3 id="1000번-ab"><a href="https://www.acmicpc.net/problem/1000">1000번: A+B</a></h3>
+<p>A와 B 를 입력 받고 더한 값을 출력하면 되는 문제이다.</p>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">**</span><span class="n">입력</span><span class="o">**</span>
+  <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+    
+  <span class="n">입력으로</span> <span class="mi">1</span> <span class="mi">2</span> <span class="n">가</span> <span class="n">들어왔을</span> <span class="n">때</span>
+  <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">()</span> <span class="n">을</span> <span class="n">통해서</span> <span class="n">공백을</span> <span class="n">기준으로</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="n">로</span> <span class="n">나누어</span> <span class="n">진다</span><span class="p">.</span>
+  <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">)</span> <span class="n">를</span> <span class="n">통해서</span> <span class="n">각각</span> <span class="nb">int</span> <span class="n">형으로</span> <span class="n">a</span><span class="p">,</span> <span class="n">b에</span> <span class="n">대입이</span> <span class="n">가능하다</span><span class="p">.</span>
+  <span class="n">string</span> <span class="n">형태라면</span> <span class="nb">str</span> <span class="n">으로</span> <span class="n">넣으면</span> <span class="n">된다</span><span class="p">.</span>
+    
+  <span class="o">**</span><span class="n">출력</span><span class="o">**</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+    
+  <span class="n">출력을</span> <span class="n">할</span> <span class="n">때</span> <span class="n">단순하게</span> <span class="nf">print</span><span class="p">()</span> <span class="n">로</span> <span class="n">출력할</span> <span class="n">것을</span> <span class="n">넣으면</span> <span class="n">된다</span><span class="p">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[1000번: A+B A와 B 를 입력 받고 더한 값을 출력하면 되는 문제이다. 해설 **입력** a, b = map(int, input().split()) 입력으로 1 2 가 들어왔을 때 input().split() 을 통해서 공백을 기준으로 1, 2로 나누어 진다. map(int, ) 를 통해서 각각 int 형으로 a, b에 대입이 가능하다. string 형태라면 str 으로 넣으면 된다. **출력** print(a+b) 출력을 할 때 단순하게 print() 로 출력할 것을 넣으면 된다. 답안 if __name__ == '__main__': a, b = map(int, input().split()) print(a+b)]]></summary></entry><entry><title type="html">[1001] A-B</title><link href="http://localhost:4000/algorithms/beakjoon/2023-02-22-2023-02-22-BOJ_1001_py/" rel="alternate" type="text/html" title="[1001] A-B" /><published>2023-02-22T23:22:39+09:00</published><updated>2023-02-22T23:19:03+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-22-BOJ_1001_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-02-22-2023-02-22-BOJ_1001_py/"><![CDATA[<h3 id="1001번-a-b"><a href="https://www.acmicpc.net/problem/1001">1001번: A-B</a></h3>
+<p>A와 B를 입력받아서 뺀 값을 출력하면 된다. 1000 번 문제와 비슷하기 때문에 복습겸 해보자.</p>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">**</span><span class="n">입력</span><span class="o">**</span>
+  <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+    
+  <span class="n">입력으로</span> <span class="mi">1</span> <span class="mi">2</span> <span class="n">가</span> <span class="n">들어왔을</span> <span class="n">때</span>
+  <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">()</span> <span class="n">을</span> <span class="n">통해서</span> <span class="n">공백을</span> <span class="n">기준으로</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="n">로</span> <span class="n">나누어</span> <span class="n">진다</span><span class="p">.</span>
+  <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">)</span> <span class="n">를</span> <span class="n">통해서</span> <span class="n">각각</span> <span class="nb">int</span> <span class="n">형으로</span> <span class="n">a</span><span class="p">,</span> <span class="n">b에</span> <span class="n">대입이</span> <span class="n">가능하다</span><span class="p">.</span>
+  <span class="n">string</span> <span class="n">형태라면</span> <span class="nb">str</span> <span class="n">으로</span> <span class="n">넣으면</span> <span class="n">된다</span><span class="p">.</span>
+    
+  <span class="o">**</span><span class="n">출력</span><span class="o">**</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+    
+  <span class="n">출력을</span> <span class="n">할</span> <span class="n">때</span> <span class="n">단순하게</span> <span class="nf">print</span><span class="p">()</span> <span class="n">로</span> <span class="n">출력할</span> <span class="n">것을</span> <span class="n">넣으면</span> <span class="n">된다</span><span class="p">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[1001번: A-B A와 B를 입력받아서 뺀 값을 출력하면 된다. 1000 번 문제와 비슷하기 때문에 복습겸 해보자. 해설 **입력** a, b = map(int, input().split()) 입력으로 1 2 가 들어왔을 때 input().split() 을 통해서 공백을 기준으로 1, 2로 나누어 진다. map(int, ) 를 통해서 각각 int 형으로 a, b에 대입이 가능하다. string 형태라면 str 으로 넣으면 된다. **출력** print(a-b) 출력을 할 때 단순하게 print() 로 출력할 것을 넣으면 된다. 답안 if __name__ == '__main__': a, b = map(int, input().split()) print(a-b)]]></summary></entry></feed>
