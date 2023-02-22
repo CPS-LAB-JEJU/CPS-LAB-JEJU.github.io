@@ -1,4 +1,5 @@
 # INFO
+- [https://cps-lab-jeju.github.io/ 바로가기](https://cps-lab-jeju.github.io/)
 - jekyll을 이용하고, blog 테마로는 Hydejack를 적용했습니다.
 
 ## 로컬에서 실행 시
