@@ -1,5 +1,161 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-24T17:39:49+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CPS LAB</title><subtitle>CPS LAB 개발자들을 위한 정보 공유 블로그
-</subtitle><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><entry><title type="html">[2630] 색종이 만들기</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-04-19-BOJ_2630_py/" rel="alternate" type="text/html" title="[2630] 색종이 만들기" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-04-19T02:05:06+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_2630_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-04-19-BOJ_2630_py/"><![CDATA[<h3 id="문제-링크">문제 링크</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-24T18:36:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CPS LAB</title><subtitle>CPS LAB 개발자들을 위한 정보 공유 블로그
+</subtitle><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><entry><title type="html">[10773] 제로</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_10773_py/" rel="alternate" type="text/html" title="[10773] 제로" /><published>2023-04-19T00:00:00+09:00</published><updated>2023-04-19T01:41:07+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_10773_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_10773_py/"><![CDATA[<h3 id="문제-링크">문제 링크</h3>
+
+<p><a href="https://www.acmicpc.net/problem/10773">10773번: 제로</a></p>
+
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">문제</span> <span class="n">그대로</span> <span class="mi">0</span><span class="n">이</span> <span class="n">아닌</span> <span class="n">경우</span> <span class="n">리스트에</span> <span class="n">담아둔다</span><span class="p">.</span>
+  <span class="mi">0</span><span class="n">인</span> <span class="n">경우에는</span> <span class="n">nums에</span> <span class="n">추가를</span> <span class="n">해두어서</span> <span class="n">최근에</span> <span class="n">담은</span> <span class="n">것을</span> <span class="n">pop한다</span><span class="p">.</span>
+    
+  <span class="n">pop을</span> <span class="n">하면</span> <span class="n">리스트에서</span> <span class="n">제거</span> <span class="n">되기</span> <span class="n">때문에</span> <span class="n">담은</span> <span class="n">리스트를</span> <span class="n">모두</span> <span class="nb">sum</span> <span class="n">하면</span>
+  <span class="n">된다</span><span class="p">.</span>
+    
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">sys</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">K</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+          <span class="n">num</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
+          <span class="k">if</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">nums</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">nums</span><span class="p">.</span><span class="nf">pop</span><span class="p">()</span>
+    
+      <span class="nf">print</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S4" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2342] Dance Dance Revolution</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_2342_py/" rel="alternate" type="text/html" title="[2342] Dance Dance Revolution" /><published>2023-04-19T00:00:00+09:00</published><updated>2023-04-19T02:05:06+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_2342_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_2342_py/"><![CDATA[<h3 id="문제-링크">문제 링크</h3>
+
+<p><a href="https://www.acmicpc.net/problem/2342">2342번: Dance Dance Revolution</a></p>
+
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">DDR</span><span class="err">?</span> <span class="n">게임에서</span> <span class="n">발을</span> <span class="n">어떻게</span> <span class="n">이동시키는</span> <span class="n">것이</span> <span class="n">힘이</span> <span class="n">덜</span> <span class="n">드는지</span> <span class="n">계산하는</span> <span class="n">방식이다</span><span class="p">.</span>
+  <span class="n">처음에는</span> <span class="n">그리디</span><span class="p">(</span><span class="err">?</span><span class="p">)</span><span class="n">하게</span> <span class="n">움직이나</span> <span class="n">생각을</span> <span class="n">했는데</span> <span class="n">발을</span> <span class="n">움직일때</span> <span class="n">마다</span> <span class="n">최소가</span> <span class="n">되도록</span> <span class="n">선택하면</span> <span class="n">총합에서</span> <span class="n">더</span> <span class="n">크게</span> <span class="n">나오는</span> <span class="n">경우가</span> <span class="n">있었다</span><span class="p">.</span>
+    
+  <span class="n">즉</span> <span class="n">이</span> <span class="n">문제는</span> <span class="n">그리디가</span> <span class="n">아니라</span><span class="p">,</span> <span class="n">오른발</span> <span class="n">왼발을</span> <span class="n">각각</span> <span class="n">움직인</span> <span class="n">상태들</span> <span class="n">모두</span> <span class="n">기록해두고</span> <span class="n">최소값을</span> <span class="n">찾아야</span> <span class="n">한다</span><span class="p">.</span>
+    
+  <span class="n">예를</span> <span class="n">들면</span><span class="p">,</span> <span class="n">현재</span> <span class="n">발위치가</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="n">이다</span><span class="p">.</span> <span class="n">처음에</span> <span class="mi">1</span><span class="n">번을</span> <span class="n">눌러라</span> <span class="n">라는</span> <span class="n">지시에</span> <span class="n">왼발을</span> <span class="n">쓸지</span><span class="p">,</span> <span class="n">오른발을</span> <span class="n">쓸지</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="n">나뉘게</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">그러면</span> <span class="n">현재</span> <span class="n">발</span> <span class="n">위치에서</span> <span class="n">왼발을</span> <span class="n">변경하면</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="n">이</span> <span class="n">되고</span><span class="p">,</span> <span class="n">오른발을</span> <span class="n">움직이면</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">이</span> <span class="n">된다</span><span class="p">.</span> 
+  <span class="n">다음</span> <span class="n">지시에서는</span> <span class="mi">2</span><span class="n">를</span> <span class="n">눌러라</span> <span class="n">라는</span> <span class="n">지시가</span> <span class="n">있다면</span><span class="p">..</span> <span class="n">또</span> <span class="n">총</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="mi">4</span><span class="n">개가</span> <span class="n">된다</span><span class="p">.</span>
+    
+  <span class="n">즉</span><span class="p">,</span> <span class="n">지시를</span> <span class="n">따를때마다</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="mi">2</span><span class="n">배가</span> <span class="n">되는데</span><span class="p">,</span> <span class="n">이러면</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="n">너무</span> <span class="n">많아</span> <span class="n">메모리</span> <span class="n">초과가</span> <span class="n">일어날</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+    
+  <span class="n">그래서</span> <span class="n">나는</span> <span class="n">발의</span> <span class="n">위치를</span> <span class="n">해시로</span> <span class="n">최솟값</span><span class="p">(</span><span class="n">현재</span> <span class="n">스텝의</span> <span class="n">최솟값</span><span class="p">)</span><span class="n">을</span> <span class="n">넣도록</span> <span class="n">처리했다</span><span class="p">.</span> <span class="n">이러면</span> <span class="n">무수한</span> <span class="n">경우의</span> <span class="n">수</span> <span class="n">중</span> <span class="n">유의미한</span> <span class="n">값만</span>
+  <span class="n">처리</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+    
+  <span class="n">하나씩</span> <span class="n">설명하면</span> <span class="n">다음과</span> <span class="n">같다</span><span class="p">.</span>
+    
+  <span class="n">우선</span> <span class="n">저장해야하는</span> <span class="n">값이</span><span class="p">,</span> <span class="n">왼발</span><span class="p">,</span> <span class="n">오른발</span> <span class="n">위치</span><span class="p">,</span> <span class="n">이제까지</span> <span class="n">든</span> <span class="n">힘으로</span> <span class="mi">3</span><span class="n">가지를</span> <span class="n">각각</span> <span class="n">경우의</span> <span class="n">수마다</span> <span class="n">저장해야한다</span><span class="p">.</span>
+  <span class="n">위에서</span> <span class="n">이야기한데로</span> <span class="n">해시로</span> <span class="n">처리하는데</span> <span class="n">각</span> <span class="n">경우의</span> <span class="n">수는</span> <span class="n">왼발</span><span class="p">,</span> <span class="n">오른발로</span> <span class="n">결정되기</span> <span class="n">때문에</span> <span class="n">왼발</span> <span class="n">오른발을</span> <span class="n">튜플로</span> <span class="n">두고</span><span class="p">,</span>
+  <span class="n">해당</span> <span class="n">값을</span> <span class="n">해시의</span> <span class="n">키값으로</span> <span class="n">지정한다</span><span class="p">.</span>
+    
+  <span class="n">steps</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">0</span><span class="p">}</span>
+  <span class="n">현재</span> <span class="n">발의</span> <span class="n">위치를</span> <span class="n">steps</span> <span class="n">라는</span> <span class="n">해시에</span> <span class="n">담는다</span><span class="p">.</span> <span class="n">처음에는</span> <span class="n">둘다</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="n">에</span> <span class="n">있기</span> <span class="n">때문에</span> <span class="n">초기값을</span> <span class="n">설정한다</span><span class="p">.</span>
+  <span class="n">각각</span> <span class="n">지시</span><span class="p">(</span><span class="n">nums로</span> <span class="n">두었다</span><span class="p">.)</span><span class="n">에</span> <span class="n">따라서</span> <span class="n">왼발</span><span class="p">,</span> <span class="n">오른발을</span> <span class="n">움직인다</span><span class="p">.</span>
+    
+  <span class="n">다음</span> <span class="n">함수를</span> <span class="n">통해서</span> <span class="n">현재</span> <span class="n">발의</span> <span class="n">위치와</span> <span class="n">다음</span> <span class="n">발의</span> <span class="n">위치를</span> <span class="n">비교해서</span> <span class="n">드는</span> <span class="n">힘을</span> <span class="n">반환한다</span><span class="p">.</span>
+  <span class="k">def</span> <span class="nf">move_step</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">next_step</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+      <span class="n">move</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">next_step</span> <span class="o">-</span> <span class="n">step</span><span class="p">))</span>
+      <span class="n">npower</span> <span class="o">=</span> <span class="n">power</span>
+      <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="n">npower</span> <span class="o">+=</span> <span class="mi">2</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">move</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">npower</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="k">elif</span> <span class="n">move</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+              <span class="n">npower</span> <span class="o">+=</span> <span class="mi">4</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">npower</span> <span class="o">+=</span> <span class="mi">3</span>
+      <span class="k">return</span> <span class="n">npower</span>
+    
+  <span class="n">움직일</span> <span class="n">때</span> <span class="n">힘을</span> <span class="n">계산하는</span> <span class="n">함수가</span> <span class="n">있으니</span><span class="p">,</span> <span class="n">현재</span> <span class="n">발</span> <span class="n">위치</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span><span class="n">의</span> <span class="n">키값을</span> <span class="n">가져온다</span><span class="p">.</span>
+  	<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+          <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">step</span> 
+          <span class="n">power</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="n">step</span><span class="p">]</span>
+          <span class="n">npower</span> <span class="o">=</span> <span class="nf">move_step</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">next_step</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">npower</span> <span class="o">&lt;</span> <span class="n">nstep</span><span class="p">.</span><span class="nf">get</span><span class="p">((</span><span class="n">next_step</span><span class="p">,</span> <span class="n">right</span><span class="p">),</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span><span class="p">):</span>
+              <span class="n">nstep</span><span class="p">[(</span><span class="n">next_step</span><span class="p">,</span> <span class="n">right</span><span class="p">)]</span> <span class="o">=</span> <span class="n">npower</span>
+    
+          <span class="n">npower</span> <span class="o">=</span> <span class="nf">move_step</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">next_step</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">npower</span> <span class="o">&lt;</span> <span class="n">nstep</span><span class="p">.</span><span class="nf">get</span><span class="p">((</span><span class="n">left</span><span class="p">,</span> <span class="n">next_step</span><span class="p">),</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span><span class="p">):</span>
+              <span class="n">nstep</span><span class="p">[(</span><span class="n">left</span><span class="p">,</span> <span class="n">next_step</span><span class="p">)]</span> <span class="o">=</span> <span class="n">npower</span>
+      <span class="n">steps</span> <span class="o">=</span> <span class="n">nstep</span>
+    
+  <span class="n">위</span> <span class="n">코드</span> <span class="n">처럼</span> <span class="n">각각</span> <span class="n">왼발</span><span class="p">,</span> <span class="n">오른발</span> <span class="n">드는</span> <span class="n">힘을</span> <span class="n">저장하고</span><span class="p">,</span> <span class="n">move_step이라는</span> <span class="n">함수로</span> <span class="n">왼발</span><span class="p">,</span> <span class="n">오른발일때</span> <span class="n">값을</span> <span class="n">찾는다</span><span class="p">.</span>
+  <span class="n">이러면</span> <span class="n">현재</span> <span class="n">지시에</span> <span class="n">따른</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="n">nstep에</span> <span class="n">저장한다</span><span class="p">.</span>
+  <span class="n">nsteps에는</span> <span class="n">n번째</span> <span class="n">지시에</span> <span class="n">따른</span> <span class="n">모든</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="n">저장되어서</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span> <span class="n">지시에서는</span> <span class="n">현재</span> <span class="n">발의</span> <span class="n">위치로</span> <span class="n">전환된다</span><span class="p">.</span>
+    
+  <span class="n">즉</span><span class="p">,</span> <span class="n">경우의</span> <span class="n">수를</span> <span class="n">구하고</span> <span class="n">현재</span> <span class="n">발의</span> <span class="n">위치를</span> <span class="n">해당</span> <span class="n">경우의</span> <span class="n">수로</span> <span class="n">전환하면</span><span class="p">,</span> <span class="n">마지막에는</span> <span class="n">이</span> <span class="n">경우의</span> <span class="n">수</span> <span class="n">중</span> <span class="n">가장</span> <span class="n">작은</span> <span class="n">값을</span> <span class="n">출력하면</span> <span class="n">된다</span><span class="p">.</span> 
+    
+  		<span class="nb">min</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+          <span class="k">if</span> <span class="nb">min</span> <span class="o">&gt;</span> <span class="n">steps</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+              <span class="nb">min</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    
+      <span class="nf">print</span><span class="p">(</span><span class="nb">min</span><span class="p">)</span>
+    
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">sys</span>
+    
+  <span class="k">def</span> <span class="nf">move_step</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">next_step</span><span class="p">,</span> <span class="n">power</span><span class="p">):</span>
+      <span class="n">move</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">next_step</span> <span class="o">-</span> <span class="n">step</span><span class="p">))</span>
+      <span class="n">npower</span> <span class="o">=</span> <span class="n">power</span>
+      <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="n">npower</span> <span class="o">+=</span> <span class="mi">2</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">move</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">npower</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="k">elif</span> <span class="n">move</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+              <span class="n">npower</span> <span class="o">+=</span> <span class="mi">4</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">npower</span> <span class="o">+=</span> <span class="mi">3</span>
+      <span class="k">return</span> <span class="n">npower</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
+    
+      <span class="n">steps</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">0</span><span class="p">}</span>
+      <span class="n">count</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+          <span class="n">nstep</span> <span class="o">=</span> <span class="p">{}</span>
+          <span class="n">next_step</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+          <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+              <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">step</span>
+              <span class="n">power</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="n">step</span><span class="p">]</span>
+              <span class="n">npower</span> <span class="o">=</span> <span class="nf">move_step</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">next_step</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+              <span class="k">if</span> <span class="n">npower</span> <span class="o">&lt;</span> <span class="n">nstep</span><span class="p">.</span><span class="nf">get</span><span class="p">((</span><span class="n">next_step</span><span class="p">,</span> <span class="n">right</span><span class="p">),</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span><span class="p">):</span>
+                  <span class="n">nstep</span><span class="p">[(</span><span class="n">next_step</span><span class="p">,</span> <span class="n">right</span><span class="p">)]</span> <span class="o">=</span> <span class="n">npower</span>
+    
+              <span class="n">npower</span> <span class="o">=</span> <span class="nf">move_step</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">next_step</span><span class="p">,</span> <span class="n">power</span><span class="p">)</span>
+              <span class="k">if</span> <span class="n">npower</span> <span class="o">&lt;</span> <span class="n">nstep</span><span class="p">.</span><span class="nf">get</span><span class="p">((</span><span class="n">left</span><span class="p">,</span> <span class="n">next_step</span><span class="p">),</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span><span class="p">):</span>
+                  <span class="n">nstep</span><span class="p">[(</span><span class="n">left</span><span class="p">,</span> <span class="n">next_step</span><span class="p">)]</span> <span class="o">=</span> <span class="n">npower</span>
+          <span class="n">steps</span> <span class="o">=</span> <span class="n">nstep</span>
+            
+      <span class="nb">min</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+          <span class="k">if</span> <span class="nb">min</span> <span class="o">&gt;</span> <span class="n">steps</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+              <span class="nb">min</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    
+      <span class="nf">print</span><span class="p">(</span><span class="nb">min</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="G3" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2630] 색종이 만들기</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_2630_py/" rel="alternate" type="text/html" title="[2630] 색종이 만들기" /><published>2023-04-19T00:00:00+09:00</published><updated>2023-04-19T02:05:06+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_2630_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_2630_py/"><![CDATA[<h3 id="문제-링크">문제 링크</h3>
 
 <p><a href="https://www.acmicpc.net/problem/2630">2630번: 색종이 만들기</a></p>
 
@@ -109,171 +265,90 @@
       <span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[문제 링크]]></summary></entry><entry><title type="html">[1001] A-B</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-22-BOJ_1001_py/" rel="alternate" type="text/html" title="[1001] A-B" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-22T23:58:10+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-22-BOJ_1001_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-22-BOJ_1001_py/"><![CDATA[<h3 id="1001번-a-b"><a href="https://www.acmicpc.net/problem/1001">1001번: A-B</a></h3>
-<p>A와 B를 입력받아서 뺀 값을 출력하면 된다. 1000 번 문제와 비슷하기 때문에 복습겸 해보자.</p>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S2" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1541] 잃어버린 괄호</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_1541_py/" rel="alternate" type="text/html" title="[1541] 잃어버린 괄호" /><published>2023-04-19T00:00:00+09:00</published><updated>2023-04-19T01:41:07+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_1541_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_1541_py/"><![CDATA[<p>level: Sliver 2</p>
+
+<h3 id="문제-링크">문제 링크</h3>
+
+<p><a href="https://www.acmicpc.net/problem/1541">1541번: 잃어버린 괄호</a></p>
+
 <ul>
   <li>
     <p>해설</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">**</span><span class="n">입력</span><span class="o">**</span>
-  <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">+</span><span class="p">,</span><span class="o">-</span><span class="n">가</span> <span class="n">있는</span> <span class="n">식에서</span> <span class="n">괄호를</span> <span class="n">쳐서</span> <span class="n">값을</span> <span class="n">최소로</span> <span class="n">만드는</span> <span class="n">문제이다</span><span class="p">...</span><span class="err">!</span>
+  <span class="n">사실</span> <span class="n">최소로</span> <span class="n">만든다는</span> <span class="n">것에</span> <span class="n">초점을</span> <span class="n">주면</span> <span class="o">-</span><span class="n">가</span> <span class="n">붙은</span> <span class="n">값을</span> <span class="n">크게</span> <span class="n">만들면</span> <span class="n">된다</span><span class="p">.</span> 
+  <span class="n">포인트는</span> <span class="n">괄호를</span> <span class="n">치면</span> <span class="n">분배</span> <span class="n">법칙에</span> <span class="n">의해서</span> <span class="o">+</span><span class="n">를</span> <span class="o">-</span><span class="n">로</span> <span class="n">바꿀</span> <span class="n">수</span> <span class="n">있다는</span> <span class="n">점이다</span><span class="p">.</span>
     
-  <span class="n">입력으로</span> <span class="mi">1</span> <span class="mi">2</span> <span class="n">가</span> <span class="n">들어왔을</span> <span class="n">때</span>
-  <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">()</span> <span class="n">을</span> <span class="n">통해서</span> <span class="n">공백을</span> <span class="n">기준으로</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="n">로</span> <span class="n">나누어</span> <span class="n">진다</span><span class="p">.</span>
-  <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">)</span> <span class="n">를</span> <span class="n">통해서</span> <span class="n">각각</span> <span class="nb">int</span> <span class="n">형으로</span> <span class="n">a</span><span class="p">,</span> <span class="n">b에</span> <span class="n">대입이</span> <span class="n">가능하다</span><span class="p">.</span>
-  <span class="n">string</span> <span class="n">형태라면</span> <span class="nb">str</span> <span class="n">으로</span> <span class="n">넣으면</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">따라서</span> <span class="o">-</span> <span class="n">와</span> <span class="o">-</span> <span class="n">사이에</span> <span class="n">것들을</span> <span class="n">괄호치면</span> <span class="n">된다</span><span class="p">.</span> <span class="n">이를</span> <span class="n">이용하면</span><span class="p">...</span>
     
-  <span class="o">**</span><span class="n">출력</span><span class="o">**</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+  <span class="mf">1.</span> <span class="o">+</span><span class="n">를</span> <span class="s">' '</span><span class="n">로</span> <span class="n">대체하고</span><span class="p">,</span> <span class="o">-</span><span class="n">를</span> <span class="s">' -'</span><span class="n">로</span> <span class="n">대체한다</span><span class="p">.</span> <span class="p">(</span><span class="n">공백이</span> <span class="n">무조건</span> <span class="n">있어야</span> <span class="n">한다</span><span class="p">.)</span>
+  <span class="mf">2.</span> <span class="n">공백이</span> <span class="n">있다면</span> <span class="n">split을</span> <span class="n">이용할</span> <span class="n">수</span> <span class="n">있기</span> <span class="n">때문에</span> <span class="n">이를</span> <span class="n">리스트로</span> <span class="n">넣을</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+  <span class="mf">3.</span> <span class="n">list로</span> <span class="n">하나씩</span> <span class="n">살펴가면서</span> <span class="n">음수일</span> <span class="n">때</span> <span class="n">플래그를</span> <span class="n">활성화</span> <span class="n">시키고</span><span class="p">,</span> <span class="n">이후</span> <span class="n">나오는</span> <span class="n">양수는</span> <span class="o">-</span><span class="n">로</span> <span class="n">치환한다</span><span class="p">.</span> <span class="p">(</span><span class="n">플래그를</span> <span class="n">negative로</span> <span class="n">정의함</span><span class="p">)</span>
+  <span class="mf">4.</span> <span class="n">만약</span> <span class="n">음수</span> <span class="n">플래그에</span> <span class="n">음수라면</span> <span class="n">그대로</span> <span class="o">+</span> <span class="n">시킨다</span><span class="p">.</span>
     
-  <span class="n">출력을</span> <span class="n">할</span> <span class="n">때</span> <span class="n">단순하게</span> <span class="nf">print</span><span class="p">()</span> <span class="n">로</span> <span class="n">출력할</span> <span class="n">것을</span> <span class="n">넣으면</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">이러면</span> <span class="o">-</span><span class="n">와</span> <span class="o">-</span><span class="n">사이의</span> <span class="n">값을</span> <span class="n">괄호친</span> <span class="n">것과</span> <span class="n">동일하다</span><span class="p">.</span> 
+    
 </code></pre></div>    </div>
   </li>
   <li>
     <p>답안</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">sys</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">strings</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">()</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">strings</span> <span class="o">=</span> <span class="n">strings</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s">'+'</span><span class="p">,</span> <span class="s">' '</span><span class="p">).</span><span class="nf">replace</span><span class="p">(</span><span class="s">'-'</span><span class="p">,</span> <span class="s">' -'</span><span class="p">)</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="nf">split</span><span class="p">())</span>
+      <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">negative</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+          <span class="n">num</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">negative</span> <span class="o">=</span> <span class="mi">1</span>
+              <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">if</span> <span class="n">negative</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                  <span class="nb">sum</span> <span class="o">-=</span> <span class="n">num</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
+    
+      <span class="nf">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[1001번: A-B A와 B를 입력받아서 뺀 값을 출력하면 된다. 1000 번 문제와 비슷하기 때문에 복습겸 해보자. 해설 **입력** a, b = map(int, input().split()) 입력으로 1 2 가 들어왔을 때 input().split() 을 통해서 공백을 기준으로 1, 2로 나누어 진다. map(int, ) 를 통해서 각각 int 형으로 a, b에 대입이 가능하다. string 형태라면 str 으로 넣으면 된다. **출력** print(a-b) 출력을 할 때 단순하게 print() 로 출력할 것을 넣으면 된다. 답안 if __name__ == '__main__': a, b = map(int, input().split()) print(a-b)]]></summary></entry><entry><title type="html">[11651] 좌표 정렬하기 2</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-22-BOJ_11651_py/" rel="alternate" type="text/html" title="[11651] 좌표 정렬하기 2" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-22-BOJ_11651_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-22-BOJ_11651_py/"><![CDATA[<h3 id="11651번-좌표-정렬하기-2"><a href="https://www.acmicpc.net/problem/11651">11651번: 좌표 정렬하기 2</a></h3>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S2" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[10828] 스택</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_10828_py/" rel="alternate" type="text/html" title="[10828] 스택" /><published>2023-04-19T00:00:00+09:00</published><updated>2023-04-19T01:41:07+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_10828_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-19-BOJ_10828_py/"><![CDATA[<h3 id="문제-링크">문제 링크</h3>
+
+<p><a href="https://www.acmicpc.net/problem/10828">10828번: 스택</a></p>
+
 <ul>
   <li>
     <p>해설</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">좌표의</span> <span class="n">y를</span> <span class="n">오름차순</span><span class="p">,</span> <span class="n">같은</span> <span class="n">경우</span> <span class="n">x의</span> <span class="n">오름차순으로</span> <span class="n">정렬하는</span> <span class="n">문제이다</span><span class="p">.</span>
-  <span class="n">파이썬에서는</span> <span class="n">해당</span> <span class="n">정렬</span> <span class="n">기준을</span> <span class="n">아래와</span> <span class="n">같이</span> <span class="n">key</span> <span class="n">옵션으로</span> <span class="n">줄</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
-  <span class="n">positions</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">자료구조</span> <span class="n">시간에</span> <span class="n">스택에</span> <span class="n">대한</span> <span class="n">내용을</span> <span class="n">배웠을</span> <span class="n">것이다</span><span class="p">.</span>
+  <span class="n">각각</span> <span class="n">명령어에</span> <span class="n">따라서</span> <span class="n">조건에</span> <span class="n">맞게</span> <span class="n">프린트하면</span> <span class="n">된다</span><span class="p">.</span>
     
-  <span class="n">이렇게</span> <span class="n">작성하면</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">y</span><span class="p">)</span><span class="n">를</span> <span class="n">기준으로</span> <span class="n">정렬되고</span><span class="p">,</span> <span class="n">같으면</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span><span class="n">를</span>
-  <span class="n">기준으로</span> <span class="n">정렬된다</span><span class="p">.</span>
+  <span class="n">push</span> <span class="o">-&gt;</span> <span class="n">스택에</span> <span class="n">추가</span> <span class="p">(</span><span class="o">==</span> <span class="n">stack</span><span class="p">.</span><span class="n">append</span><span class="p">)</span>
+  <span class="n">top</span> <span class="o">-&gt;</span> <span class="n">스택</span> <span class="n">가장</span> <span class="n">위에</span> <span class="n">있는</span> <span class="n">것을</span> <span class="n">출력</span> <span class="n">리스트</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">pop</span> <span class="o">-&gt;</span> <span class="n">스택</span> <span class="n">가장</span> <span class="n">위에</span> <span class="n">있는</span> <span class="n">것을</span> <span class="n">빼온다</span><span class="p">.</span> <span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="n">pop</span><span class="p">)</span>
+  <span class="n">size</span> <span class="o">-&gt;</span> <span class="n">stack의</span> <span class="n">사이즈</span>
+  <span class="n">empty</span> <span class="o">-&gt;</span> <span class="n">stack의</span> <span class="n">길이가</span> <span class="mi">0</span> <span class="n">인지</span> <span class="n">판단</span><span class="p">.</span>
     
-  <span class="n">정렬</span> <span class="n">후</span> <span class="n">해당</span> <span class="n">자표들을</span> <span class="n">출력하면</span> <span class="n">된다</span><span class="p">.</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-  	<span class="nf">print</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>답안</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="n">positions</span> <span class="o">=</span> <span class="p">[]</span>
-      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-          <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
-          <span class="n">positions</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-      <span class="n">positions</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-      <span class="c1"># print(positions)
-</span>      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-          <span class="nf">print</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>    </div>
-  </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[11651번: 좌표 정렬하기 2 해설 좌표의 y를 오름차순, 같은 경우 x의 오름차순으로 정렬하는 문제이다. 파이썬에서는 해당 정렬 기준을 아래와 같이 key 옵션으로 줄 수 있다. positions.sort(key=lambda x: (x[1], x[0])) 이렇게 작성하면 x[1](y)를 기준으로 정렬되고, 같으면 x[0](x)를 기준으로 정렬된다. 정렬 후 해당 자표들을 출력하면 된다. for i in range(N): print(positions[i][0], positions[i][1]) 답안 if __name__ == '__main__': N = int(input()) positions = [] for i in range(N): a, b = map(int, input().split()) positions.append((a, b)) positions.sort(key=lambda x: (x[1], x[0])) # print(positions) for i in range(N): print(positions[i][0], positions[i][1])]]></summary></entry><entry><title type="html">[2558] A+B -2</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-22-BOJ_2558_py/" rel="alternate" type="text/html" title="[2558] A+B -2" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-22T23:58:10+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-22-BOJ_2558_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-22-BOJ_2558_py/"><![CDATA[<h3 id="2558번---ab---2"><a href="https://www.acmicpc.net/problem/2558">2558번 - A+B - 2</a></h3>
-<p>1001 번과 다르게 입력을 공백 단위가 아니라 한줄 한줄 받기 때문에 조금 형식이 다르다.</p>
-<ul>
-  <li>
-    <p>해설</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">**</span><span class="n">입력</span><span class="o">**</span>
-  <span class="n">한줄</span> <span class="n">씩</span> <span class="n">입력을</span> <span class="n">받아야</span> <span class="n">하는</span> <span class="n">상황이라면</span> <span class="n">아래</span> <span class="n">처럼</span> <span class="nf">input</span><span class="p">()</span> <span class="n">을</span> <span class="n">이용할</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
-  <span class="nf">input</span><span class="p">()</span> <span class="n">자체가</span> <span class="n">엔터를</span> <span class="n">치기</span> <span class="n">전까지</span> <span class="n">입력을</span> <span class="n">받는다고</span> <span class="n">생각하면</span> <span class="n">쉽다</span><span class="p">.</span>
-  <span class="n">int로</span> <span class="n">자료</span> <span class="n">형을</span> <span class="n">정한다</span><span class="p">.</span>
-  <span class="n">a</span><span class="o">=</span><span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-  <span class="n">b</span><span class="o">=</span><span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">strings</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
     
-  <span class="o">**</span><span class="n">출력</span><span class="o">**</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>답안</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">a</span><span class="o">=</span><span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="n">b</span><span class="o">=</span><span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[2558번 - A+B - 2 1001 번과 다르게 입력을 공백 단위가 아니라 한줄 한줄 받기 때문에 조금 형식이 다르다. 해설 **입력** 한줄 씩 입력을 받아야 하는 상황이라면 아래 처럼 input() 을 이용할 수 있다. input() 자체가 엔터를 치기 전까지 입력을 받는다고 생각하면 쉽다. int로 자료 형을 정한다. a=int(input()) b=int(input()) **출력** print(a+b) 답안 if __name__ == '__main__': a=int(input()) b=int(input()) print(a+b)]]></summary></entry><entry><title type="html">[18108] 1998년생인 내가 태국에서는 2541년생?!</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ-18108_py/" rel="alternate" type="text/html" title="[18108] 1998년생인 내가 태국에서는 2541년생?!" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T12:38:51+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ-18108_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ-18108_py/"><![CDATA[<h3 id="18108번-1998년생인-내가-태국에서는-2541년생"><a href="https://www.acmicpc.net/problem/18108">18108번: 1998년생인 내가 태국에서는 2541년생?!</a></h3>
-<p>년도를 서기가 아닌 불기를 이용한 연도로 바꾸는 내용이다. 불기 연도를 서기 연도로.. 즉, 특정 년도로 빼면 되는 문제이다.</p>
-<ul>
-  <li>
-    <p>해설</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">입력</span>
-  <span class="n">int로</span> <span class="n">자료형을</span> <span class="n">정해주어야</span> <span class="n">출력</span> <span class="n">쪽</span> <span class="n">연산이</span> <span class="n">가능하다</span><span class="p">.</span>
-  <span class="n">a</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+  <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="n">을</span> <span class="n">통해서</span> <span class="n">한</span> <span class="n">줄</span> <span class="n">씩</span> <span class="n">명령어를</span> <span class="n">받는다</span><span class="p">.</span>
+  <span class="n">해당</span> <span class="n">strings가</span> <span class="n">입력</span> <span class="n">받은</span> <span class="n">한줄이고</span><span class="p">,</span> <span class="n">공백에</span> <span class="n">따라서</span> <span class="n">분리된다</span><span class="p">.</span>
     
-  <span class="n">출력</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">543</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>답안</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">a</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">543</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[18108번: 1998년생인 내가 태국에서는 2541년생?! 년도를 서기가 아닌 불기를 이용한 연도로 바꾸는 내용이다. 불기 연도를 서기 연도로.. 즉, 특정 년도로 빼면 되는 문제이다. 해설 입력 int로 자료형을 정해주어야 출력 쪽 연산이 가능하다. a = int(input()) 출력 print(a-543) 답안 if __name__ == '__main__': a = int(input()) print(a-543)]]></summary></entry><entry><title type="html">[10807] 개수 세기</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_10807_py/" rel="alternate" type="text/html" title="[10807] 개수 세기" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_10807_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_10807_py/"><![CDATA[<h3 id="10807번-개수-세기"><a href="https://www.acmicpc.net/problem/10807">10807번: 개수 세기</a></h3>
-<ul>
-  <li>
-    <p>해설</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    
-  <span class="n">파이썬에서</span> <span class="n">리스트의</span> <span class="n">특정</span> <span class="n">값이</span> <span class="n">몇개가</span> <span class="n">있는지</span> <span class="n">체크하기</span> <span class="n">위해서</span> <span class="n">count를</span> <span class="n">사용할</span> <span class="n">수</span> <span class="n">있습니다</span><span class="p">.</span>
-  <span class="n">nums</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+  <span class="n">ex</span><span class="p">)</span> <span class="n">push</span> <span class="mi">3</span> 
+  <span class="n">이라고</span> <span class="n">입력하면</span>
+  <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'push'</span>
+  <span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+  <span class="n">이</span> <span class="n">들어간다</span><span class="p">.</span>
     
-  <span class="n">이렇게</span> <span class="n">하면</span> <span class="n">nums에</span> <span class="n">V가</span> <span class="n">몇개인지</span> <span class="n">나오기</span> <span class="n">때문에</span> <span class="n">바로</span> <span class="n">출력하면</span> <span class="n">됩니다</span><span class="p">.</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>답안</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="n">nums</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
-      <span class="n">V</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
-</code></pre></div>    </div>
-  </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[10807번: 개수 세기 해설 파이썬에서 리스트의 특정 값이 몇개가 있는지 체크하기 위해서 count를 사용할 수 있습니다. nums.count(V) 이렇게 하면 nums에 V가 몇개인지 나오기 때문에 바로 출력하면 됩니다. 답안 if __name__ == '__main__': N = int(input()) nums = list(map(int, input().split())) V = int(input()) print(nums.count(V))]]></summary></entry><entry><title type="html">[10816] 숫자 카드 2</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_10816_py/" rel="alternate" type="text/html" title="[10816] 숫자 카드 2" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_10816_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_10816_py/"><![CDATA[<h3 id="10816번-숫자-카드-2"><a href="https://www.acmicpc.net/problem/10816">10816번: 숫자 카드 2</a></h3>
-<ul>
-  <li>
-    <p>해설</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">이</span> <span class="n">문제는</span> <span class="n">조금</span> <span class="n">조심할</span> <span class="n">부분이</span> <span class="n">있다</span><span class="p">.</span>
-  <span class="n">입력</span><span class="p">,</span> <span class="n">출력</span> <span class="n">시</span> <span class="n">시간까지</span> <span class="n">꼼꼼히</span> <span class="n">해야</span> <span class="n">시간초과가</span> <span class="n">안</span> <span class="n">걸리기</span> <span class="n">때문이다</span><span class="p">.</span>
+  <span class="n">각각</span> <span class="n">명령어는</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">이</span> <span class="n">반드시</span> <span class="n">있고</span><span class="p">,</span> <span class="n">그</span> <span class="n">값에</span> <span class="n">따라서</span> <span class="n">기능이</span>
+  <span class="n">달라지기</span> <span class="n">떄문에</span> <span class="n">해당</span> <span class="n">값을</span> <span class="n">분기처리하면</span> <span class="n">된다</span><span class="p">.</span>
     
-  <span class="n">현재</span> <span class="n">가지고</span> <span class="n">있는</span> <span class="n">카드들</span><span class="p">,</span> <span class="n">카드가</span> <span class="n">있냐고</span> <span class="n">묻는</span> <span class="n">질문에</span> <span class="n">따라</span> <span class="n">카드</span> <span class="n">수를</span>
-  <span class="n">카운트하면</span> <span class="n">된다</span><span class="p">.</span>
-    
-  <span class="n">우선</span> <span class="n">입력을</span> <span class="n">좀더</span> <span class="n">빠르게</span> <span class="n">받으려면</span> <span class="kn">import</span> <span class="n">sys</span> <span class="n">를</span> <span class="n">하고</span><span class="p">,</span>
-  <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
-  <span class="n">cards</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
-  <span class="n">M</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
-  <span class="n">questions</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
-  <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
-    
-  <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">()</span> <span class="n">으로</span> <span class="n">입력을</span> <span class="n">받는다</span><span class="p">.</span> <span class="nf">input</span><span class="p">()</span><span class="n">과</span> <span class="n">같은</span> <span class="n">일을</span> <span class="n">하고</span><span class="p">,</span>
-  <span class="n">좀더</span> <span class="n">빠르다고</span> <span class="n">보면</span> <span class="n">된다</span><span class="p">.</span>
-  <span class="n">cards에</span> <span class="n">현재</span> <span class="n">가지고</span> <span class="n">있는</span> <span class="n">카드</span> <span class="n">수</span><span class="p">,</span> <span class="n">질문들은</span> <span class="n">questions에</span> <span class="n">받는다</span><span class="p">.</span>
-    
-  <span class="n">counts에는</span> <span class="n">현재</span> <span class="n">가지고</span> <span class="n">있는</span> <span class="n">카드들의</span> <span class="n">중복된</span> <span class="n">카드</span> <span class="n">수를</span> <span class="n">계산한다</span><span class="p">.</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cards</span><span class="p">:</span>
-  	<span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-  		<span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-  	<span class="k">else</span><span class="p">:</span>
-  		<span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    
-  <span class="n">counts에</span> <span class="n">카드</span> <span class="n">개수가</span> <span class="n">있어서</span> <span class="n">각</span> <span class="n">질문별</span> <span class="n">카드수를</span> <span class="n">출력하면</span> <span class="n">된다</span><span class="err">!</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">:</span>
-      <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-          <span class="nf">print</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
-      <span class="k">else</span><span class="p">:</span>
-          <span class="nf">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+  <span class="n">case</span> <span class="n">문을</span> <span class="n">사용할</span> <span class="n">지</span><span class="p">,</span> <span class="k">if</span> <span class="n">문을</span> <span class="n">사용할지</span> <span class="n">취양에</span> <span class="n">맞게</span> <span class="n">사용하면</span> <span class="n">된다</span><span class="p">.</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -283,192 +358,302 @@
     
   <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
       <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
-      <span class="n">cards</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
-      <span class="n">M</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
-      <span class="n">questions</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
-      <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
-    
-      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cards</span><span class="p">:</span>
-          <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-              <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-          <span class="k">else</span><span class="p">:</span>
-              <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    
-      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">:</span>
-          <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-              <span class="nf">print</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
-          <span class="k">else</span><span class="p">:</span>
-              <span class="nf">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[10816번: 숫자 카드 2 해설 이 문제는 조금 조심할 부분이 있다. 입력, 출력 시 시간까지 꼼꼼히 해야 시간초과가 안 걸리기 때문이다. 현재 가지고 있는 카드들, 카드가 있냐고 묻는 질문에 따라 카드 수를 카운트하면 된다. 우선 입력을 좀더 빠르게 받으려면 import sys 를 하고, N = int(sys.stdin.readline()) cards = list(map(int, sys.stdin.readline().split())) M = int(sys.stdin.readline()) questions = list(map(int, sys.stdin.readline().split())) counts = {} sys.stdin.readline() 으로 입력을 받는다. input()과 같은 일을 하고, 좀더 빠르다고 보면 된다. cards에 현재 가지고 있는 카드 수, 질문들은 questions에 받는다. counts에는 현재 가지고 있는 카드들의 중복된 카드 수를 계산한다. for i in cards: if i not in counts: counts[i] = 1 else: counts[i] += 1 counts에 카드 개수가 있어서 각 질문별 카드수를 출력하면 된다! for i in questions: if i in counts: print(counts[i], end=' ') else: print(0, end=' ') 답안 import sys if __name__ == '__main__': N = int(sys.stdin.readline()) cards = list(map(int, sys.stdin.readline().split())) M = int(sys.stdin.readline()) questions = list(map(int, sys.stdin.readline().split())) counts = {} for i in cards: if i not in counts: counts[i] = 1 else: counts[i] += 1 for i in questions: if i in counts: print(counts[i], end=' ') else: print(0, end=' ')]]></summary></entry><entry><title type="html">[10926] ??!</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_10926_py/" rel="alternate" type="text/html" title="[10926] ??!" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T20:09:12+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_10926_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_10926_py/"><![CDATA[<h3 id="10926번-"><a href="https://www.acmicpc.net/problem/10926">10926번: ??!</a></h3>
-<p>입력 받은 것 뒤에 ??! 을 붙여서 출력하면 된다.</p>
-<ul>
-  <li>
-    <p>해설</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">**</span><span class="n">입력</span><span class="o">**</span>
-  <span class="n">따로</span> <span class="nb">int</span> <span class="n">등의</span> <span class="n">자료형을</span> <span class="n">붙이지</span> <span class="n">않으면</span> <span class="nf">str</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="n">형태로</span> <span class="n">들어간다</span><span class="p">.</span>
-  <span class="n">a</span> <span class="o">=</span> <span class="nf">input</span><span class="p">()</span>
-    
-  <span class="n">출력</span>
-  <span class="n">어떤</span> <span class="n">변수</span> <span class="n">뒤에</span> <span class="n">특정</span> <span class="n">문자를</span> <span class="n">붙이려면</span> <span class="o">+</span><span class="s">''</span> <span class="n">로</span> <span class="n">붙이기가</span> <span class="n">가능하다</span><span class="p">.</span>
-  <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="s">'??!'</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>답안</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">a</span> <span class="o">=</span> <span class="nf">input</span><span class="p">()</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="s">'??!'</span><span class="p">)</span>
-</code></pre></div>    </div>
-  </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[10926번: ??! 입력 받은 것 뒤에 ??! 을 붙여서 출력하면 된다. 해설 **입력** 따로 int 등의 자료형을 붙이지 않으면 str(string)형태로 들어간다. a = input() 출력 어떤 변수 뒤에 특정 문자를 붙이려면 +'' 로 붙이기가 가능하다. print(a+'??!') 답안 if __name__ == '__main__': a = input() print(a+'??!')]]></summary></entry><entry><title type="html">[1303] - 전쟁 - 전투</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_1303_py/" rel="alternate" type="text/html" title="[1303] - 전쟁 - 전투" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_1303_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_1303_py/"><![CDATA[<h3 id="1303번---전쟁---전투"><a href="https://www.acmicpc.net/problem/1303">1303번 - 전쟁 - 전투</a></h3>
-<ul>
-  <li>
-    <p>해설</p>
-
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">이번</span> <span class="n">문제에서는</span> <span class="n">BFS</span> <span class="n">라는</span> <span class="n">알고리즘을</span> <span class="n">살짝</span> <span class="n">알아둘</span> <span class="n">필요가</span> <span class="n">있다</span><span class="p">.</span>
-    
-  <span class="n">BFS란</span><span class="p">,</span> <span class="n">너비</span> <span class="n">우선</span> <span class="n">탐색이라고</span> <span class="n">불리우는</span> <span class="n">탐색</span> <span class="n">방식으로</span><span class="p">..</span>
-  <span class="n">가까이</span> <span class="n">있는</span> <span class="n">데이터를</span> <span class="n">우선적으로</span> <span class="n">탐색하는</span> <span class="n">것으로</span> <span class="n">이해하면</span> <span class="n">된다</span><span class="p">.</span>
-    
-  <span class="n">해당</span> <span class="n">문제에서는</span> <span class="n">전쟁에</span> <span class="n">위력을</span> <span class="n">인접한</span> <span class="n">사람수의</span> <span class="n">제곱이기</span> <span class="n">때문에</span>
-  <span class="n">인접한</span> <span class="n">사람수만</span> <span class="n">잘</span> <span class="n">구하면</span><span class="p">,</span> <span class="n">해당</span> <span class="n">값의</span> <span class="n">제곱합으로</span> <span class="n">답을</span> <span class="n">도출할</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
-    
-  <span class="n">인접한</span> <span class="n">사람이라는</span> <span class="n">기준은</span> <span class="n">해당</span> <span class="n">사람에서</span> <span class="n">동서남북</span><span class="p">(</span><span class="n">대각선</span> <span class="n">제외</span><span class="p">)</span><span class="n">임으로</span> <span class="n">현재</span> <span class="n">위치에서</span>
-  <span class="n">각각</span> <span class="n">동서남북</span> <span class="n">먼저</span> <span class="n">탐색하면된다</span><span class="p">.</span>
-  <span class="n">탐색할</span> <span class="n">때</span> <span class="n">주의점은</span> <span class="n">이전에</span> <span class="n">방문</span> <span class="n">곳은</span> <span class="n">visited로</span> <span class="n">체크해서</span> <span class="n">다시</span> <span class="n">가지</span> <span class="n">않는</span> <span class="n">것이고</span><span class="p">,</span>
-  <span class="n">탐색했을</span> <span class="n">때</span> <span class="n">같은</span> <span class="n">병사인</span> <span class="n">경우에만</span> <span class="n">방문을</span> <span class="n">한다는</span> <span class="n">것이다</span><span class="p">.</span>
-    
-  <span class="n">즉</span><span class="p">,</span> <span class="n">visited</span> <span class="o">=</span> <span class="mi">1</span><span class="p">(</span><span class="n">또는</span> <span class="n">Ture</span><span class="p">)</span><span class="n">가</span> <span class="n">아니고</span><span class="p">,</span> <span class="n">현재</span> <span class="n">병사와</span> <span class="n">방문할</span> <span class="n">병사의</span> <span class="n">값이</span> 
-  <span class="n">일치한</span> <span class="n">경우에만</span> <span class="n">방문한다</span><span class="p">.</span>
-    
-  <span class="mf">1.</span> <span class="n">입력</span> <span class="n">받기</span>
-  	<span class="n">W_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">B_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">M</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
-    <span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">visited</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">fields</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="nf">input</span><span class="p">()))</span>
-    
-  <span class="n">W_COUNT</span> <span class="n">를</span> <span class="n">우리</span> <span class="n">병사</span><span class="p">,</span> <span class="n">적국은</span> <span class="n">B_COUNT에</span> <span class="n">값을</span> <span class="n">저장하기로</span> <span class="n">하고</span><span class="p">,</span> <span class="n">각각</span> <span class="n">값을</span> <span class="n">받는다</span><span class="p">.</span>
-  <span class="n">visited는</span> <span class="n">각</span> <span class="n">병사들을</span> <span class="n">탐색했는지</span><span class="p">(</span><span class="n">방문했는지</span><span class="p">)</span> <span class="n">여부를</span> <span class="n">저장하기</span> <span class="n">위해</span> <span class="mi">0</span><span class="n">으로</span> <span class="n">초기화</span> <span class="n">시킨다</span><span class="p">.</span>
-    
-  <span class="mf">2.</span> <span class="n">탐색하기</span>
-  <span class="n">W</span><span class="p">,</span> <span class="n">B</span> <span class="n">우리편과</span> <span class="n">적군이</span> <span class="n">필드에</span> <span class="n">듬성듬성</span> <span class="n">있을</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span> <span class="n">탐색할때</span> <span class="n">시작점을</span> <span class="n">정하기</span> <span class="n">위해서</span>
-  <span class="n">방문하지</span> <span class="n">않은</span> <span class="n">것</span><span class="p">(</span><span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:)</span><span class="n">인</span> <span class="n">경우</span> <span class="n">탐색을</span> <span class="n">시작한다</span><span class="p">.</span>
-  	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-          <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-              <span class="n">c</span> <span class="o">=</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
-              <span class="c1"># print(i, j, c**2)
-</span>              <span class="k">if</span> <span class="n">fields</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">'W'</span><span class="p">:</span>
-                  <span class="n">W_COUNT</span> <span class="o">+=</span> <span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+      <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">strings</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
+          <span class="k">if</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">'push'</span><span class="p">:</span>
+              <span class="n">stack</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+          <span class="k">elif</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">'top'</span><span class="p">:</span>
+              <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                  <span class="nf">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
               <span class="k">else</span><span class="p">:</span>
-                  <span class="n">B_COUNT</span> <span class="o">+=</span> <span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                  <span class="nf">print</span><span class="p">(</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+          <span class="k">elif</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">'pop'</span><span class="p">:</span>
+              <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                  <span class="nf">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="nf">print</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="nf">pop</span><span class="p">())</span>
+          <span class="k">elif</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">'size'</span><span class="p">:</span>
+              <span class="nf">print</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+          <span class="k">elif</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">'empty'</span><span class="p">:</span>
+              <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                  <span class="nf">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="nf">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S4" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1904] 01타일</title><link href="http://localhost:4000/algorithms/beakjoon/2023-03-21-BOJ_1904_py/" rel="alternate" type="text/html" title="[1904] 01타일" /><published>2023-03-21T00:00:00+09:00</published><updated>2023-03-21T22:47:33+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_1904_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-03-21-BOJ_1904_py/"><![CDATA[<h3 id="1904번-01타일"><a href="https://www.acmicpc.net/problem/1904">1904번: 01타일</a></h3>
+
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="mi">00</span><span class="n">과</span> <span class="mi">1</span><span class="n">로만</span> <span class="n">가능한</span> <span class="n">조합을</span> <span class="n">찾는</span> <span class="n">문제이다</span><span class="p">.</span>
     
-  <span class="n">해당</span> <span class="n">i</span><span class="p">,</span><span class="n">j에서</span> <span class="n">탐색을</span> <span class="n">시작하면</span><span class="p">,</span>
-  <span class="n">c</span> <span class="o">=</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
-  <span class="n">를</span> <span class="n">통해서</span> <span class="n">BFS</span> <span class="n">탐색을</span> <span class="n">진행하는데</span><span class="p">...</span>
-     
-  <span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
-      <span class="n">movex</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-      <span class="n">movey</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-      <span class="n">queue</span> <span class="o">=</span> <span class="nf">deque</span><span class="p">()</span>
-      <span class="n">queue</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">))</span>
-      <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">][</span><span class="n">sy</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-          <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="nf">popleft</span><span class="p">()</span>
-          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-              <span class="n">tx</span> <span class="o">=</span> <span class="n">vx</span><span class="o">+</span><span class="n">movex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-              <span class="n">ty</span> <span class="o">=</span> <span class="n">vy</span><span class="o">+</span><span class="n">movey</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-              <span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="n">tx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">M</span> <span class="o">&gt;</span> <span class="n">ty</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-                  <span class="k">if</span> <span class="n">graph</span><span class="p">[</span><span class="n">vx</span><span class="p">][</span><span class="n">vy</span><span class="p">]</span> <span class="o">==</span> <span class="n">graph</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]:</span>
-                      <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-                      <span class="n">queue</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">))</span>
-                      <span class="n">visited</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="k">return</span> <span class="n">count</span>
+  <span class="n">N이</span> <span class="mi">1</span><span class="o">~</span><span class="mi">6</span><span class="n">까지</span> <span class="n">조합을</span> <span class="n">모두</span> <span class="n">적다보면</span><span class="p">,</span> <span class="n">패턴이</span> <span class="n">보이는</span> <span class="n">문제이다</span><span class="p">.</span>
     
-  <span class="n">해당</span> <span class="n">메소드에서</span> <span class="n">동서남북으로</span> <span class="n">움직이기</span> <span class="n">위해</span> <span class="n">x</span><span class="p">,</span><span class="n">y좌표로</span> <span class="n">각각</span> <span class="n">움직이는</span> <span class="n">것을</span> <span class="n">리스트로</span> <span class="n">지정한다</span><span class="p">.</span>
-  <span class="n">해당</span> <span class="n">리스트에서</span> <span class="mi">0</span> <span class="n">번째는</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="n">번째는</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span> <span class="n">번째는</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-  <span class="n">이런식으로</span> <span class="n">된다</span><span class="p">.</span> 
+  <span class="n">바로</span> <span class="n">피보나치</span><span class="err">!!</span>
     
-  <span class="n">우선</span> <span class="n">시작</span> <span class="n">점의</span> <span class="n">x</span><span class="p">,</span> <span class="n">y를</span> <span class="n">큐안에</span> <span class="n">넣는다</span><span class="p">.</span>
-  <span class="n">queue</span> <span class="o">=</span> <span class="nf">deque</span><span class="p">()</span>
-  <span class="n">queue</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">))</span>
-  <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">][</span><span class="n">sy</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">00</span><span class="p">]</span>
+  <span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">001</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span> <span class="n">이</span> <span class="n">가능하다</span><span class="p">.</span>
     
+  <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span> <span class="n">까지</span> <span class="n">보면</span><span class="p">,</span> <span class="n">이전</span> <span class="n">것에</span> <span class="n">숫자를</span> <span class="n">붙이는</span> <span class="n">형식으로</span> <span class="n">표현이</span> <span class="n">가능해진다</span><span class="p">.</span>
+  <span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="n">을</span> <span class="n">기준으로</span> <span class="n">본다면</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">인</span> <span class="mi">1</span><span class="n">일</span> <span class="n">때</span> <span class="n">뒤에</span> <span class="mi">00</span><span class="n">을</span> <span class="n">붙이는</span> <span class="n">경우와</span><span class="p">,</span> 
+  <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="n">인</span> <span class="mi">2</span><span class="n">일</span> <span class="n">때</span> <span class="n">뒤에</span> <span class="mi">1</span><span class="n">을</span> <span class="n">붙이면</span> <span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="n">인</span> <span class="n">경우와</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="n">맞는다</span><span class="p">.</span>
+    
+  <span class="n">혹시</span> <span class="n">모르니</span> <span class="mi">5</span><span class="n">까지</span> <span class="n">이어서</span> <span class="n">보면</span><span class="p">...</span>
+    
+  <span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1111</span><span class="p">,</span> <span class="mi">0011</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="mi">0000</span><span class="p">]</span>
+  <span class="n">N</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">11111</span><span class="p">,</span> <span class="mi">00111</span><span class="p">,</span> <span class="mi">10011</span><span class="p">,</span> <span class="mi">11001</span><span class="p">,</span> <span class="mi">00001</span><span class="p">,</span> <span class="mi">11100</span><span class="p">,</span> <span class="mi">00100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
+    
+  <span class="n">으로</span> <span class="n">각각</span> <span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="n">에</span> <span class="mi">00</span><span class="n">을</span> <span class="n">붙이는</span> <span class="n">경우</span> <span class="o">+</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="n">에</span> <span class="mi">1</span><span class="n">을</span> <span class="n">붙이는</span> <span class="n">경우가</span> <span class="n">현재</span> <span class="n">N의</span> <span class="n">경우의</span> <span class="n">수임을</span>
+  <span class="n">알</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+    
+  <span class="n">여기서</span> <span class="n">N을</span> <span class="mi">15746</span><span class="n">로</span> <span class="n">나누는</span> <span class="n">것도</span> <span class="n">잊지</span> <span class="n">말고</span> <span class="n">해야한다</span><span class="p">.(</span><span class="n">이것</span> <span class="n">때문에</span> <span class="n">많이</span> <span class="n">틀렸다</span><span class="p">.)</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>답안</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">from</span> <span class="n">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-  <span class="kn">import</span> <span class="n">queue</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">a1</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">a2</span> <span class="o">=</span> <span class="mi">2</span>
+      <span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+          <span class="nf">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="n">before</span> <span class="o">=</span> <span class="p">()</span>
+          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+              <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                  <span class="n">before</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="n">before</span> <span class="o">=</span> <span class="p">(</span><span class="n">before</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">before</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">before</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="mi">15746</span><span class="p">)</span>
+          <span class="nf">print</span><span class="p">((</span><span class="n">before</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">before</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="mi">15746</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S3" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[3273] 두수의 합</title><link href="http://localhost:4000/algorithms/beakjoon/2023-03-21-BOJ_3273_py/" rel="alternate" type="text/html" title="[3273] 두수의 합" /><published>2023-03-21T00:00:00+09:00</published><updated>2023-03-21T22:47:33+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_3273_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-03-21-BOJ_3273_py/"><![CDATA[<h3 id="3273번-두-수의-합"><a href="https://www.acmicpc.net/problem/3273">3273번: 두 수의 합</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">N개의</span> <span class="n">원소</span> <span class="n">중</span> <span class="mi">2</span><span class="n">개를</span> <span class="n">더했을</span> <span class="n">때</span> <span class="n">X</span> <span class="n">값이</span> <span class="n">되는</span> <span class="n">조합의</span> <span class="n">수를</span> <span class="n">구하는</span> <span class="n">문제이다</span><span class="p">.</span>
     
-  <span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
-      <span class="n">movex</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-      <span class="n">movey</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-      <span class="n">queue</span> <span class="o">=</span> <span class="nf">deque</span><span class="p">()</span>
-      <span class="n">queue</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">))</span>
-      <span class="n">visited</span><span class="p">[</span><span class="n">sx</span><span class="p">][</span><span class="n">sy</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-          <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="nf">popleft</span><span class="p">()</span>
-          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-              <span class="n">tx</span> <span class="o">=</span> <span class="n">vx</span><span class="o">+</span><span class="n">movex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-              <span class="n">ty</span> <span class="o">=</span> <span class="n">vy</span><span class="o">+</span><span class="n">movey</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-              <span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="n">tx</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">M</span> <span class="o">&gt;</span> <span class="n">ty</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-                  <span class="k">if</span> <span class="n">graph</span><span class="p">[</span><span class="n">vx</span><span class="p">][</span><span class="n">vy</span><span class="p">]</span> <span class="o">==</span> <span class="n">graph</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]:</span>
-                      <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-                      <span class="n">queue</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">))</span>
-                      <span class="n">visited</span><span class="p">[</span><span class="n">tx</span><span class="p">][</span><span class="n">ty</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="k">return</span> <span class="n">count</span>
+  <span class="n">일일히</span> <span class="mi">2</span><span class="n">개를</span> <span class="n">픽해서</span> <span class="n">더하는</span> <span class="n">방식도</span> <span class="n">가능하겠지만</span><span class="p">,</span> <span class="n">N이</span> <span class="n">크기</span> <span class="n">때문에</span>
+  <span class="n">좀</span> <span class="n">더</span> <span class="n">효율적인</span> <span class="n">방식이</span> <span class="n">좋을</span> <span class="n">것이다</span><span class="p">.</span>
+    
+  <span class="n">그래서</span> <span class="n">사용하는</span> <span class="n">것이</span> <span class="n">투</span> <span class="n">포인터이다</span><span class="p">.</span>
+    
+  <span class="n">투</span> <span class="n">포인터</span>
+  <span class="n">포인터를</span> <span class="mi">2</span><span class="n">개</span> <span class="n">둬서</span> <span class="n">조건에</span> <span class="n">따라</span> <span class="n">해당</span> <span class="n">포인터를</span> <span class="n">이동시키면서</span> <span class="n">조건에</span> <span class="n">맞는</span> <span class="n">지</span> <span class="n">체크하는</span> <span class="n">형식이다</span><span class="p">.</span>
+  <span class="n">우선</span><span class="p">,</span> <span class="n">투</span> <span class="n">포인터에서</span> <span class="n">중요한</span> <span class="n">점은</span> <span class="mi">2</span><span class="n">개의</span> <span class="n">포인터</span> <span class="n">중</span> <span class="n">어떤</span> <span class="n">걸</span> <span class="n">옮길지</span> <span class="n">조건을</span> <span class="n">제시해주는</span> <span class="n">것이다</span><span class="p">.</span>
+  <span class="n">원소들을</span> <span class="n">정렬하고</span><span class="p">,</span> <span class="n">포인터를</span> <span class="n">양쪽</span> <span class="n">끝에</span> <span class="n">둔다면</span><span class="p">...</span>
+    
+  <span class="n">첫번째</span> <span class="n">포인터는</span> <span class="n">가장</span> <span class="n">작은</span> <span class="n">값</span><span class="p">,</span> <span class="n">두번째</span> <span class="n">포인터는</span> <span class="n">가장</span> <span class="n">큰값을</span> <span class="n">가지게</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">포인터에</span> <span class="n">해당하는</span> <span class="n">두</span> <span class="n">수의</span> <span class="n">합이</span> <span class="n">X보다</span> <span class="n">작다면</span><span class="p">,</span> <span class="n">앞의</span> <span class="n">포인터를</span> <span class="n">이동</span> <span class="n">시키고</span>
+  <span class="n">큰</span> <span class="n">경우는</span> <span class="n">뒤의</span> <span class="n">포인터를</span> <span class="n">이동시키는</span> <span class="n">방식으로</span> <span class="n">진행한다</span><span class="p">.</span>
+    
+  <span class="n">같은</span> <span class="n">경우는</span> <span class="n">어떻게</span> <span class="n">할까</span><span class="p">...</span><span class="err">?</span>
+    
+  <span class="n">같은</span> <span class="n">경우는</span> <span class="n">두</span> <span class="n">포인터를</span> <span class="n">모두</span> <span class="n">이동시킨다</span><span class="p">.</span>
+    
+  <span class="n">물론</span> <span class="n">모든</span> <span class="n">경우의</span> <span class="n">수를</span> <span class="n">보지는</span> <span class="n">않기에</span> <span class="n">시간</span> <span class="n">복잡도가</span> <span class="n">낮고</span><span class="p">,</span> <span class="n">X에</span> <span class="n">가까워지도록</span> <span class="n">코드를</span> <span class="n">작성했기</span> <span class="n">때문에</span>
+  <span class="n">X에</span> <span class="n">해당하는</span> <span class="n">경우의</span> <span class="n">수를</span> <span class="n">모두</span> <span class="n">찾을</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">sys</span>
     
   <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">W_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">B_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="n">M</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
-      <span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
-      <span class="n">visited</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-          <span class="n">fields</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="nf">input</span><span class="p">()))</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
+      <span class="n">X</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
+      <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">end</span> <span class="o">=</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span>
+      <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+      <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+          <span class="n">sums</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>
+          <span class="k">if</span> <span class="n">sums</span> <span class="o">==</span> <span class="n">X</span><span class="p">:</span>
+              <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+              <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+              <span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">if</span> <span class="n">sums</span> <span class="o">&lt;</span> <span class="n">X</span><span class="p">:</span>
+                  <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="n">end</span> <span class="o">-=</span> <span class="mi">1</span>
     
-      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-          <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-              <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-                  <span class="n">c</span> <span class="o">=</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
-                  <span class="c1"># print(i, j, c**2)
-</span>                  <span class="k">if</span> <span class="n">fields</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">'W'</span><span class="p">:</span>
-                      <span class="n">W_COUNT</span> <span class="o">+=</span> <span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-                  <span class="k">else</span><span class="p">:</span>
-                      <span class="n">B_COUNT</span> <span class="o">+=</span> <span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    
-      <span class="nf">print</span><span class="p">(</span><span class="n">W_COUNT</span><span class="p">)</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">B_COUNT</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[1303번 - 전쟁 - 전투 해설 이번 문제에서는 BFS 라는 알고리즘을 살짝 알아둘 필요가 있다. BFS란, 너비 우선 탐색이라고 불리우는 탐색 방식으로.. 가까이 있는 데이터를 우선적으로 탐색하는 것으로 이해하면 된다. 해당 문제에서는 전쟁에 위력을 인접한 사람수의 제곱이기 때문에 인접한 사람수만 잘 구하면, 해당 값의 제곱합으로 답을 도출할 수 있다. 인접한 사람이라는 기준은 해당 사람에서 동서남북(대각선 제외)임으로 현재 위치에서 각각 동서남북 먼저 탐색하면된다. 탐색할 때 주의점은 이전에 방문 곳은 visited로 체크해서 다시 가지 않는 것이고, 탐색했을 때 같은 병사인 경우에만 방문을 한다는 것이다. 즉, visited = 1(또는 Ture)가 아니고, 현재 병사와 방문할 병사의 값이 일치한 경우에만 방문한다. 1. 입력 받기 W_COUNT = 0 B_COUNT = 0 M, N = map(int, input().split()) fields = [] visited = [[0]*M for _ in range(N)] for i in range(N): fields.append(str(input())) W_COUNT 를 우리 병사, 적국은 B_COUNT에 값을 저장하기로 하고, 각각 값을 받는다. visited는 각 병사들을 탐색했는지(방문했는지) 여부를 저장하기 위해 0으로 초기화 시킨다. 2. 탐색하기 W, B 우리편과 적군이 필드에 듬성듬성 있을 수 있다. 탐색할때 시작점을 정하기 위해서 방문하지 않은 것(if visited[i][j] != 1:)인 경우 탐색을 시작한다. for i in range(N): for j in range(M): if visited[i][j] != 1: c = bfs(fields, i, j, visited) # print(i, j, c**2) if fields[i][j] == 'W': W_COUNT += (c**2) else: B_COUNT += (c**2) 해당 i,j에서 탐색을 시작하면, c = bfs(fields, i, j, visited) 를 통해서 BFS 탐색을 진행하는데... def bfs(graph, sx, sy, visited): movex = [0, 0, -1, 1] movey = [-1, 1, 0, 0] queue = deque() queue.append((sx, sy)) visited[sx][sy] = 1 count = 1 while queue: vx, vy = queue.popleft() for i in range(4): tx = vx+movex[i] ty = vy+movey[i] if N &gt; tx &gt;= 0 and M &gt; ty &gt;= 0 and visited[tx][ty] != 1: if graph[vx][vy] == graph[tx][ty]: count += 1 queue.append((tx, ty)) visited[tx][ty] = 1 return count 해당 메소드에서 동서남북으로 움직이기 위해 x,y좌표로 각각 움직이는 것을 리스트로 지정한다. 해당 리스트에서 0 번째는 (x:0, y:-1), 1 번째는 (0,1), 2 번째는 (-1,0) 이런식으로 된다. 우선 시작 점의 x, y를 큐안에 넣는다. queue = deque() queue.append((sx, sy)) visited[sx][sy] = 1 답안 from collections import deque import queue def bfs(graph, sx, sy, visited): movex = [0, 0, -1, 1] movey = [-1, 1, 0, 0] queue = deque() queue.append((sx, sy)) visited[sx][sy] = 1 count = 1 while queue: vx, vy = queue.popleft() for i in range(4): tx = vx+movex[i] ty = vy+movey[i] if N &gt; tx &gt;= 0 and M &gt; ty &gt;= 0 and visited[tx][ty] != 1: if graph[vx][vy] == graph[tx][ty]: count += 1 queue.append((tx, ty)) visited[tx][ty] = 1 return count if __name__ == '__main__': W_COUNT = 0 B_COUNT = 0 M, N = map(int, input().split()) fields = [] visited = [[0]*M for _ in range(N)] for i in range(N): fields.append(str(input())) for i in range(N): for j in range(M): if visited[i][j] != 1: c = bfs(fields, i, j, visited) # print(i, j, c**2) if fields[i][j] == 'W': W_COUNT += (c**2) else: B_COUNT += (c**2) print(W_COUNT) print(B_COUNT)]]></summary></entry><entry><title type="html">[1427] 소트인사이드</title><link href="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_1427_py/" rel="alternate" type="text/html" title="[1427] 소트인사이드" /><published>2023-04-24T17:39:49+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_1427_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-04-24-2023-02-23-BOJ_1427_py/"><![CDATA[<h3 id="1427번-소트인사이드"><a href="https://www.acmicpc.net/problem/1427">1427번: 소트인사이드</a></h3>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S3" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[14425] 문자열 집합</title><link href="http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_14425_py/" rel="alternate" type="text/html" title="[14425] 문자열 집합" /><published>2023-02-23T00:00:00+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_14425_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_14425_py/"><![CDATA[<h3 id="14425번-문자열-집합"><a href="https://www.acmicpc.net/problem/14425">14425번: 문자열 집합</a></h3>
 <ul>
   <li>
     <p>해설</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">입력</span> <span class="n">받은</span> <span class="n">수를</span> <span class="n">내림차순으로</span> <span class="n">정렬하기만</span> <span class="n">하면</span> <span class="n">된다</span><span class="p">.</span>
-  <span class="n">list의</span> <span class="n">경우</span> <span class="n">sorted에</span> <span class="n">reverse</span> <span class="n">옵션을</span> <span class="n">True로</span> <span class="n">두면</span> <span class="n">내림차순이</span> <span class="n">된다</span><span class="p">.</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">N개의</span> <span class="n">문자가</span> <span class="n">있고</span><span class="p">,</span> <span class="n">다음으로</span> <span class="n">주어지는</span> <span class="n">M개의</span> <span class="n">문자들에</span> <span class="n">포함되어있는지</span>
+  <span class="n">찾는</span> <span class="n">문제로</span><span class="p">...</span>
+    
+  <span class="n">N</span> <span class="n">의</span> <span class="n">문자들이</span> <span class="n">M에</span> <span class="n">몇개가</span> <span class="n">있는지</span> <span class="n">체크하면</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">파이썬에서는</span> <span class="n">count를</span> <span class="n">이용해서</span> <span class="n">간단히</span> <span class="n">체크할</span> <span class="n">수</span> <span class="n">있기</span> <span class="n">때문에</span> <span class="n">각각</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+  	<span class="n">result</span> <span class="o">+=</span> <span class="n">m_group</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">n_group</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="n">이런</span> <span class="n">식으로</span> <span class="n">m</span> <span class="n">들의</span> <span class="n">입력에서</span> <span class="nf">count</span><span class="p">(</span><span class="n">n</span> <span class="n">문자</span><span class="p">)</span><span class="n">를</span> <span class="n">이용해</span> <span class="n">포함되는</span> <span class="n">개수를</span> 
+  <span class="n">더하면</span> <span class="n">된다</span><span class="p">.</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>답안</p>
 
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
-      <span class="n">nums</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-      <span class="n">nums</span> <span class="o">=</span> <span class="s">''</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nf">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
-      <span class="nf">print</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+      <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+      <span class="n">n_group</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">m_group</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">n_group</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+          <span class="n">m_group</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">result</span> <span class="o">+=</span> <span class="n">m_group</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">n_group</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><summary type="html"><![CDATA[1427번: 소트인사이드 해설 입력 받은 수를 내림차순으로 정렬하기만 하면 된다. list의 경우 sorted에 reverse 옵션을 True로 두면 내림차순이 된다. 답안 if __name__ == '__main__': N = int(input()) nums = str(N) nums = ''.join(sorted(nums, reverse=True)) print(nums)]]></summary></entry></feed>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S3" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[1484] 다이어트</title><link href="http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_1484_py/" rel="alternate" type="text/html" title="[1484] 다이어트" /><published>2023-02-23T00:00:00+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_1484_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_1484_py/"><![CDATA[<h3 id="1484번-다이어트"><a href="https://www.acmicpc.net/problem/1484">1484번: 다이어트</a></h3>
+<p>이번 문제는 <code class="language-plaintext highlighter-rouge">a^2 - b^2</code> 공식인 <code class="language-plaintext highlighter-rouge">(a+b)(a-b)</code>를 이용해야한다.</p>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">성원이가</span> <span class="n">살이</span> <span class="n">쪘는데</span><span class="p">,</span> <span class="n">부끄러운</span> <span class="n">나머지</span> <span class="n">얼마나</span> <span class="n">쪘는지</span> <span class="n">안</span> <span class="n">알려주고</span>
+  <span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="n">이런식으로</span> <span class="n">알려주었다</span><span class="p">...</span>
+  <span class="n">기존</span> <span class="n">몸무게도</span> <span class="n">모르기</span> <span class="n">때문에</span> <span class="n">위</span> <span class="n">공식에서</span> <span class="n">연립</span> <span class="n">방정식을</span> <span class="n">푸는</span> <span class="n">방식으로</span> <span class="n">진행해야한다</span><span class="p">.</span>
+    
+  <span class="n">위</span> <span class="n">공식은</span> <span class="n">기존에</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="n">이다</span><span class="p">.</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="n">양수라는</span> <span class="n">조건이</span> <span class="n">있기</span> <span class="n">때문에</span><span class="p">(</span><span class="n">몸무게니깐</span><span class="p">)</span>
+  <span class="n">a</span><span class="o">+</span><span class="n">b가</span> <span class="n">무조건</span> <span class="n">큰</span> <span class="n">수로</span> <span class="n">두고</span><span class="p">,</span> <span class="n">쪘다고</span> <span class="n">했으니</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="n">을</span> <span class="n">찐</span> <span class="n">몸무게로</span>
+  <span class="n">인식하고</span> <span class="n">출력하면된다</span><span class="p">.</span> 
+    
+  <span class="n">우선</span> <span class="n">연립</span> <span class="n">방정식으로</span> <span class="n">만들어야</span> <span class="n">하는데</span><span class="p">,</span> <span class="n">결과적으로</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="n">는</span>
+  <span class="n">입력</span> <span class="n">받는</span> <span class="n">G</span> <span class="n">값의</span> <span class="n">약수이기</span> <span class="n">때문에</span> <span class="n">추론이</span> <span class="n">가능하다</span><span class="p">.</span>
+    
+  <span class="n">여기까지</span> <span class="n">풀이</span> <span class="n">과정을</span> <span class="n">정리하면</span> 
+  <span class="mf">1.</span> <span class="n">G의</span> <span class="n">약수를</span> <span class="n">찾는다</span><span class="p">.</span>
+  <span class="mf">2.</span> <span class="n">약수에</span> <span class="n">맞게</span> <span class="n">a</span><span class="p">,</span><span class="n">b를</span> <span class="n">찾는다</span><span class="p">.</span>
+  <span class="mf">3.</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="n">가</span> <span class="n">양수인</span> <span class="n">경우</span> <span class="n">오름차순으로</span> <span class="n">출력하고</span><span class="p">,</span>
+   <span class="n">맞는</span> <span class="n">값이</span> <span class="n">없으면</span> <span class="o">-</span><span class="mi">1</span><span class="n">을</span> <span class="n">출력한다</span><span class="p">.</span>
+    
+  <span class="mf">1.</span> <span class="n">G의</span> <span class="n">약수</span> <span class="n">찾기</span>
+  <span class="n">약수를</span> <span class="n">찾는</span> <span class="n">것은</span> <span class="n">많은</span> <span class="n">방법이</span> <span class="n">있지만</span><span class="p">,</span> <span class="n">주로</span> <span class="n">가장</span> <span class="n">효율적인</span> <span class="n">방식은</span> <span class="n">제곱근</span> <span class="n">까지</span> <span class="n">나누어서</span>
+  <span class="mi">0</span><span class="n">인</span> <span class="n">것을</span> <span class="n">약수로</span> <span class="n">두는</span> <span class="n">것이다</span><span class="p">.</span> <span class="p">(</span><span class="n">약수에는</span> <span class="n">제곱근을</span> <span class="n">기준으로</span> <span class="n">대칭</span> <span class="n">으로</span> <span class="n">짝이</span> <span class="n">있기</span> <span class="n">때문에</span><span class="p">)</span>
+  <span class="n">하지만</span><span class="p">,</span> <span class="n">문제에서</span> <span class="n">해당</span> <span class="n">범위가</span> <span class="n">생각보다</span> <span class="n">적기</span> <span class="n">때문에</span> <span class="n">단순히</span> <span class="mi">1</span><span class="o">~</span><span class="n">G까지만</span> <span class="n">체크했다</span><span class="p">.</span>
+    
+  <span class="n">그것이</span> <span class="n">아래</span> <span class="n">코드이다</span><span class="p">.</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">G</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+  	<span class="k">if</span> <span class="nf">int</span><span class="p">(</span><span class="n">G</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    
+  <span class="n">여기서</span> <span class="nf">int</span><span class="p">(</span><span class="n">G</span><span class="o">%</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="n">인</span> <span class="n">것은</span> <span class="n">약수로</span> <span class="n">판정된다</span><span class="p">.</span>
+  <span class="n">위에서</span> <span class="n">설명한</span> <span class="n">대로</span> <span class="n">a</span><span class="o">+</span><span class="n">b가</span> <span class="mi">2</span><span class="n">개의</span> <span class="n">약수중</span> <span class="n">큰</span> <span class="n">약수이기</span> <span class="n">때문에</span><span class="p">...</span>
+    
+  <span class="n">약수에</span> <span class="n">맞는</span> <span class="n">a</span><span class="p">,</span><span class="n">b를</span> <span class="n">찾을</span> <span class="n">때</span> <span class="n">염두해야한다</span><span class="p">.</span>
+    
+  <span class="mf">2.</span><span class="n">약수에</span> <span class="n">맞게</span> <span class="n">a</span><span class="p">,</span><span class="n">b를</span> <span class="n">찾기</span>
+  <span class="n">여기서</span> <span class="n">나는</span> <span class="n">별도의</span> <span class="n">메소드로</span> <span class="n">분리</span> <span class="n">시켜두었는데</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b가</span> <span class="n">헷갈리기</span> <span class="n">때문에</span> <span class="n">조금</span> <span class="n">바꾸면</span><span class="p">..</span>
+  <span class="k">def</span> <span class="nf">possible</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+          <span class="k">if</span> <span class="n">c</span><span class="o">+</span><span class="n">p</span> <span class="o">==</span> <span class="n">d</span><span class="o">-</span><span class="n">p</span><span class="p">:</span>
+              <span class="nf">return </span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">p</span><span class="p">)</span>
+    
+  <span class="n">해당</span> <span class="n">메소드를</span> <span class="n">호출하는</span> <span class="n">시점은</span> <span class="n">약수</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nf">int</span><span class="p">(</span><span class="n">G</span><span class="o">/</span><span class="n">i</span><span class="p">))</span><span class="n">가</span> <span class="n">구해지고</span> <span class="n">각각</span> <span class="n">넣게</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="nf">possible</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nf">int</span><span class="p">(</span><span class="n">G</span><span class="o">/</span><span class="n">i</span><span class="p">))</span>
+  <span class="n">위</span> <span class="n">메소드에서</span> <span class="n">c</span><span class="p">,</span> <span class="n">d는</span> <span class="n">각각의</span> <span class="n">약수로</span><span class="p">..</span> <span class="n">기존</span> <span class="n">연립</span> <span class="n">방정식은</span> <span class="n">다음과</span> <span class="n">같다</span><span class="p">.</span>
+  <span class="n">a</span><span class="o">+</span><span class="n">b</span> <span class="o">=</span> <span class="n">d</span>
+  <span class="n">a</span><span class="o">-</span><span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+    
+  <span class="n">여기서</span> <span class="n">의문스러운</span> <span class="n">것은</span> <span class="n">c와</span> <span class="n">d의</span> <span class="n">위치가</span> <span class="n">바뀔</span> <span class="n">수</span> <span class="n">있지</span> <span class="n">않느냐</span> <span class="n">인데</span><span class="p">,</span> <span class="n">해당</span>
+  <span class="n">메소드가</span> <span class="mi">1</span><span class="o">~</span><span class="n">G까지</span> <span class="n">약수</span> <span class="n">조합</span> <span class="n">모두</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span> <span class="o">~</span><span class="p">...</span><span class="o">~</span> <span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="n">을</span> <span class="n">체크하기</span> <span class="n">때문에</span>
+  <span class="n">순서</span> <span class="n">고려</span> <span class="n">없이</span> <span class="n">진행해도</span> <span class="n">된다</span><span class="p">.</span> <span class="n">d가</span> <span class="n">무조건</span> <span class="n">큰수여야</span> <span class="n">한다는</span> <span class="n">조건이</span> <span class="n">맞지</span> <span class="n">않으면</span><span class="p">,</span>
+  <span class="n">답</span> <span class="n">역시</span> <span class="n">달라지기</span> <span class="n">때문</span><span class="p">.(</span><span class="n">수식</span> <span class="n">성립</span> <span class="n">안됨</span> <span class="o">-&gt;</span> <span class="n">음수여야</span> <span class="n">풀리기</span> <span class="n">때문</span><span class="p">)</span>
+    
+  <span class="n">우리가</span> <span class="n">구할</span> <span class="n">것은</span> <span class="n">가능한</span> <span class="n">a와</span> <span class="n">b</span> <span class="n">이다</span><span class="p">.</span> <span class="n">a를</span> <span class="n">남기고</span> <span class="n">넘기면</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">d</span><span class="o">-</span><span class="n">b</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">c</span><span class="o">+</span><span class="n">b</span> <span class="n">이다</span><span class="p">.</span> 
+  <span class="n">이것이</span> <span class="k">if</span> <span class="n">c</span><span class="o">+</span><span class="n">p</span> <span class="o">==</span> <span class="n">d</span><span class="o">-</span><span class="n">p</span><span class="p">:</span> <span class="n">에</span> <span class="n">해당하는</span> <span class="n">조건문이고</span><span class="p">,</span> <span class="n">b로</span> <span class="n">가능한</span><span class="p">..</span> <span class="n">범위</span>
+  <span class="p">(</span><span class="mi">1</span><span class="o">~</span><span class="n">d</span><span class="p">)</span><span class="n">까지</span> <span class="n">b를</span> <span class="n">대입시켜서</span> <span class="n">구하면</span><span class="p">...</span> <span class="n">p로</span> <span class="n">각각</span> <span class="n">비교한다</span><span class="p">.</span>
+  <span class="n">조건에</span> <span class="n">맞는</span> <span class="n">a와</span> <span class="nf">b</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="n">가</span> <span class="n">있다면</span> <span class="n">해당</span> <span class="n">값을</span> <span class="n">리턴한다</span><span class="p">.</span>
+    
+  <span class="mf">3.</span> <span class="n">출력하기</span>
+  <span class="n">이렇게</span> <span class="n">리턴</span> <span class="n">된</span> <span class="n">값을</span> <span class="n">divisor에</span> <span class="n">추가</span> <span class="n">시키고</span><span class="p">,</span> <span class="n">값이</span> <span class="n">있는</span> <span class="n">경우</span> <span class="nb">sorted</span> <span class="n">후</span> <span class="n">출력</span><span class="p">,</span>
+  <span class="n">없다면</span> <span class="o">-</span><span class="mi">1</span> <span class="n">출력을</span> <span class="n">한다</span><span class="p">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">possible</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+          <span class="k">if</span> <span class="n">a</span><span class="o">+</span><span class="n">p</span> <span class="o">==</span> <span class="n">b</span><span class="o">-</span><span class="n">p</span><span class="p">:</span>
+              <span class="nf">return </span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">p</span><span class="p">)</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">G</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">divisor</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">G</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+          <span class="k">if</span> <span class="nf">int</span><span class="p">(</span><span class="n">G</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">result</span> <span class="o">=</span> <span class="nf">possible</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nf">int</span><span class="p">(</span><span class="n">G</span><span class="o">/</span><span class="n">i</span><span class="p">))</span>
+              <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+                  <span class="n">divisor</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">divisor</span><span class="p">):</span>
+          <span class="nf">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    
+      <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="nf">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="S3" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry><entry><title type="html">[2525] 오븐 시계</title><link href="http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_2525_py/" rel="alternate" type="text/html" title="[2525] 오븐 시계" /><published>2023-02-23T00:00:00+09:00</published><updated>2023-02-23T20:38:42+09:00</updated><id>http://localhost:4000/algorithms/beakjoon/BOJ_2525_py</id><content type="html" xml:base="http://localhost:4000/algorithms/beakjoon/2023-02-23-BOJ_2525_py/"><![CDATA[<h3 id="2525번-오븐-시계"><a href="https://www.acmicpc.net/problem/2525">2525번: 오븐 시계</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">시계에서</span> <span class="mi">60</span><span class="n">분은</span> <span class="mi">1</span><span class="n">시간이고</span> <span class="mi">24</span><span class="n">시</span> <span class="n">인</span> <span class="n">경우가</span> <span class="mi">0</span><span class="n">시</span> <span class="n">인점만</span> <span class="n">주의하면</span> <span class="n">됩니다</span><span class="p">.</span>
+    
+  <span class="n">여기서</span> <span class="n">주의</span> <span class="n">할</span> <span class="n">점은</span> <span class="n">문제를</span> <span class="n">봤을</span> <span class="n">때</span> <span class="n">단순히</span> <span class="n">덧셈</span> <span class="n">뺄셈이</span> <span class="n">아닌</span> <span class="n">나누기</span><span class="p">,</span> <span class="n">나머지</span>
+  <span class="n">로</span> <span class="n">봐야한다는</span> <span class="n">점이다</span><span class="p">.</span>
+    
+  <span class="n">이번에</span> <span class="n">메소드</span> <span class="k">def</span> <span class="nf">문과</span> <span class="n">같이</span> <span class="n">코드를</span> <span class="n">작성하면</span>
+  <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+      <span class="n">h</span> <span class="o">+=</span> <span class="nf">int</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span>
+      <span class="n">h</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">h</span> <span class="o">%</span> <span class="mi">24</span><span class="p">)</span>
+      <span class="n">m</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">m</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+  <span class="n">처럼</span> <span class="n">분이</span> <span class="mi">60</span><span class="n">을</span> <span class="n">넘은</span> <span class="n">경우</span><span class="p">(</span><span class="n">ex</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">150</span> <span class="n">등</span><span class="p">)</span><span class="n">에</span> <span class="n">맞게</span> <span class="nf">h</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span><span class="n">에</span> <span class="n">더한다</span><span class="p">.</span>
+    
+  <span class="n">h</span> <span class="n">가</span> <span class="mi">24</span><span class="n">를</span> <span class="n">넘는</span> <span class="n">경우는</span> <span class="mi">0</span><span class="n">시</span> <span class="n">부터</span> <span class="n">시작하기</span> <span class="n">때문에</span> <span class="mi">24</span><span class="n">로</span> <span class="n">나눈</span> <span class="n">나머지가</span> <span class="n">시간으로</span> 
+  <span class="n">된다</span><span class="p">.</span> <span class="p">(</span><span class="n">ex</span><span class="p">:</span> <span class="mi">26</span><span class="n">시는</span> <span class="mi">24</span><span class="n">로</span> <span class="n">나눈</span> <span class="n">나머지</span> <span class="mi">2</span><span class="n">시가</span> <span class="n">된다</span><span class="p">.)</span>
+    
+  <span class="n">시간으로</span> <span class="n">나간</span> <span class="n">것</span> <span class="n">이외의</span> <span class="n">나머지</span> <span class="n">분을</span> <span class="n">기존</span> <span class="nf">m</span><span class="p">(</span><span class="n">나눈</span> <span class="n">나머지가</span> <span class="n">현재</span> <span class="n">minute가</span> <span class="n">된다</span><span class="p">.)</span><span class="n">로</span> <span class="n">둔다</span><span class="p">.</span>
+    
+  <span class="n">이렇게</span> <span class="n">하면</span><span class="p">,</span> <span class="n">요리가</span> <span class="n">끝난</span> <span class="n">시간을</span> <span class="n">각각</span> <span class="n">출력</span> <span class="n">할</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+  <span class="nf">print</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+      <span class="n">h</span> <span class="o">+=</span> <span class="nf">int</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span>
+      <span class="n">h</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">h</span> <span class="o">%</span> <span class="mi">24</span><span class="p">)</span>
+      <span class="n">m</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">m</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s">' '</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">h</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+      <span class="n">time</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">m</span> <span class="o">+=</span> <span class="n">time</span>
+      <span class="nf">calculate</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>]]></content><author><name>&lt;firstname&gt; &lt;lastname&gt;</name><email>&lt;mail@domain.tld&gt;</email></author><category term="algorithms" /><category term="beakjoon" /><category term="python" /><category term="B3" /><summary type="html"><![CDATA[백준 문제 풀이]]></summary></entry></feed>

@@ -50,8 +50,8 @@ author:
 menu:
   - title:             알고리즘
     url:               /algorithms/
-  - title:             Tag
-    url:               /tag/
+  - title:             준비중
+    url:               /
   - title:             About
     url:               /about/
 
@@ -80,8 +80,8 @@ paginate_path:         /:num/
 # Theme
 # ---------------------------------------------------------------------------------------
 
-# theme: jekyll-theme-hydejack
-remote_theme: hydecorp/hydejack@v9
+theme: jekyll-theme-hydejack
+# remote_theme: hydecorp/hydejack@v9
 
 
 # Customizaton
