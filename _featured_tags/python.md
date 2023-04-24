@@ -1,11 +1,15 @@
 ---
-layout: category
-title: backjoon 레벨 리스트
-slug: backjoon_level
+layout: tag-list
+title: Python
+slug: python
+category:
+  - beakjoon
+menu: true
 description: >
-  백준 레벨 리스트
+  python 문제 풀이
 accent_color: '#260bd2'
 accent_image:
   background: '#202020'
   overlay:    false
 ---
+

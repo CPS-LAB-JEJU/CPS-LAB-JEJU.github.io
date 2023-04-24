@@ -1,0 +1,47 @@
+<h3 id="2587번-대표값2"><a href="https://www.acmicpc.net/problem/2587">2587번: 대표값2</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">입력들을</span> <span class="n">한줄씩</span> <span class="n">받고</span><span class="p">,</span> <span class="n">해당</span> <span class="n">값의</span> <span class="n">평균과</span> <span class="n">중앙값을</span> <span class="n">반환하면</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">입력받는</span> <span class="n">것은</span> <span class="mi">5</span><span class="n">개로</span> <span class="n">평균은</span> <span class="n">간단히</span> <span class="n">총합을</span> <span class="mi">5</span><span class="n">로</span> <span class="n">나누면</span> <span class="n">된다</span><span class="err">!</span>
+    
+  <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+  	<span class="n">n</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+  	<span class="n">nums</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+  <span class="n">여기서</span> <span class="n">총합을</span> <span class="n">입력</span> <span class="n">받고</span> <span class="n">나서</span> <span class="n">별도로</span> <span class="n">더하는</span> <span class="n">방법도</span> <span class="n">있지만</span><span class="p">,</span> 
+  <span class="n">입력받는</span> <span class="n">즉시</span> <span class="n">더해두면</span> <span class="n">시간을</span> <span class="n">더</span> <span class="n">줄일</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+    
+  <span class="n">이를</span> <span class="n">sum에다</span> <span class="n">넣어두고</span> <span class="n">마지막</span> <span class="n">출력에</span> <span class="n">나누기를</span> <span class="n">하자</span><span class="p">.</span>
+    
+  <span class="n">이제</span> <span class="n">중앙값이</span> <span class="n">문제인데</span><span class="p">,</span> <span class="n">중앙값을</span> <span class="n">알려면</span> <span class="n">수들을</span> <span class="n">정렬해야한다</span><span class="p">.</span>
+  <span class="n">숫자들의</span> <span class="n">개수가</span> <span class="mi">5</span><span class="n">개이기</span> <span class="n">때문에</span> <span class="mi">3</span><span class="n">번째</span> <span class="n">놓인</span> <span class="n">수가</span> <span class="n">중앙값이다</span><span class="err">!</span>
+    
+  <span class="o">**</span><span class="n">출력</span><span class="o">**</span>
+  <span class="n">따라서</span> <span class="n">출력할때</span> <span class="n">평균</span><span class="p">,</span> <span class="n">중앙값</span> <span class="n">순이기</span> <span class="n">때문에</span><span class="p">...</span> <span class="n">아래와</span> <span class="n">같이</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="o">****</span><span class="nf">print</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">sums</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+  <span class="n">여기서</span> <span class="n">평균에</span> <span class="nf">int</span><span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="n">를</span> <span class="n">하는</span> <span class="n">이유는</span> <span class="n">평균</span><span class="p">,</span> <span class="n">중앙값이</span> <span class="n">모두</span> <span class="n">자연수</span> <span class="n">이기</span> 
+  <span class="n">때문이다</span><span class="p">.</span> 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">sums</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+          <span class="n">n</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+          <span class="n">nums</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+          <span class="n">sums</span> <span class="o">+=</span> <span class="n">n</span>
+    
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">sums</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>    </div>
+  </li>
+</ul>

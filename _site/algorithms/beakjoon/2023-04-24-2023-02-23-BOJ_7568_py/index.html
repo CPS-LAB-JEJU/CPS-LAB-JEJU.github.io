@@ -1,0 +1,76 @@
+<h3 id="7568번-덩치"><a href="https://www.acmicpc.net/problem/7568">7568번: 덩치</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">문제에서는</span> <span class="n">덩치가</span> <span class="n">큰</span> <span class="n">사람에</span> <span class="n">따라서</span> <span class="n">등수를</span> <span class="n">매긴다고</span> <span class="n">한다</span><span class="p">...</span>
+  <span class="s">'덩치가 크다'</span><span class="n">라는</span> <span class="n">의미는</span> <span class="n">몸무게</span> <span class="n">키</span> <span class="n">모두</span> <span class="n">자신보다</span> <span class="n">큰경우만</span> <span class="n">해당하는데</span><span class="p">...</span>
+    
+  <span class="n">이러다</span> <span class="n">보니</span> <span class="n">몸무게는</span> <span class="n">나보다</span> <span class="n">적은데</span><span class="p">,</span> <span class="n">키는</span> <span class="n">나보다</span> <span class="n">큰</span> <span class="n">경우</span> <span class="n">등에는</span>
+  <span class="n">누가</span> <span class="n">덩치가</span> <span class="n">큰지</span> <span class="n">알기</span> <span class="n">어렵다는</span> <span class="n">문제가</span> <span class="n">있다</span><span class="p">.</span>
+    
+  <span class="n">이를</span> <span class="n">방지하기</span> <span class="n">위해서</span> <span class="n">자신보다</span> <span class="n">덩치큰</span> <span class="n">사람의</span> <span class="n">수로</span> <span class="n">등수를</span> <span class="n">매기는</span> <span class="n">것인데</span><span class="p">..</span>
+    
+  <span class="n">우선</span> <span class="n">몸무게와</span> <span class="n">키를</span> <span class="n">받자</span><span class="p">.</span><span class="err">!</span>
+    
+  <span class="o">**</span><span class="n">입력</span><span class="o">**</span>
+  <span class="n">한사람당</span> <span class="n">몸무게와</span> <span class="n">키</span> <span class="mi">2</span><span class="n">가지</span> <span class="n">입력을</span> <span class="n">받아야</span> <span class="n">하는</span> <span class="n">경우인데</span><span class="p">..</span> <span class="n">A라는</span> <span class="n">사람에</span> 
+  <span class="n">접근하면</span><span class="p">,</span> <span class="n">몸무게와</span> <span class="n">키를</span> <span class="n">반환해야하기</span> <span class="n">때문에</span> <span class="n">list에</span> <span class="p">()</span><span class="n">튜플</span> <span class="n">형태로</span> <span class="n">받는다</span><span class="p">.</span>
+  <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+  <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+      <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+      <span class="n">nums</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    
+  <span class="n">이러면</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">몸무게</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">키</span> <span class="n">로</span> <span class="n">반환이</span> <span class="n">된다</span><span class="p">.</span>
+    
+  <span class="n">다음으로</span> <span class="n">각각</span> <span class="n">사람마다</span> <span class="n">비교해서</span> <span class="n">자신보다</span> <span class="n">덩치큰</span> <span class="n">사람의</span> <span class="n">수를</span> <span class="n">계산한다</span><span class="p">.</span>
+  <span class="n">grade</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+      <span class="n">grade</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+              <span class="n">grade</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+  <span class="n">grade</span> <span class="n">라는</span> <span class="n">리스트를</span> <span class="n">정의해서</span> <span class="n">i번째</span> <span class="n">사람마다</span> <span class="n">자신보다</span> <span class="n">덩치큰</span> <span class="n">사람</span> <span class="n">수를</span> 
+  <span class="n">카운트한다</span><span class="p">.</span>
+    
+  <span class="n">이제</span> <span class="n">등수를</span> <span class="n">산정하면</span> <span class="n">되는데</span><span class="p">...</span>
+  <span class="n">자신보다</span> <span class="n">덩치큰</span> <span class="n">사람의</span> <span class="n">수이기</span> <span class="n">때문에</span> <span class="mi">1</span><span class="n">등은</span> <span class="n">자신보다</span> <span class="n">큰사람이</span> <span class="n">없을</span> <span class="n">것이고</span><span class="p">,</span>
+  <span class="mi">2</span><span class="n">등은</span> <span class="mi">1</span><span class="n">명</span><span class="p">,</span> <span class="mi">3</span><span class="n">등은</span> <span class="mi">2</span><span class="n">명</span><span class="p">,</span> <span class="mi">4</span><span class="n">등은</span> <span class="mi">3</span><span class="n">명</span><span class="p">...</span>
+  <span class="n">즉</span><span class="p">,</span> <span class="n">n등은</span> <span class="n">자신보다</span> <span class="n">덩치큰</span> <span class="n">사람이</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="n">명</span> <span class="n">있는</span> <span class="n">것이다</span><span class="p">.</span>
+    
+  <span class="n">반대로</span> <span class="n">생각하면</span> <span class="n">자신보다</span> <span class="n">덩치큰</span> <span class="n">사람</span> <span class="n">수</span><span class="o">+</span><span class="mi">1</span> <span class="o">=</span> <span class="n">등수이다</span><span class="err">!</span>
+  <span class="o">**</span><span class="n">출력</span><span class="o">**</span>
+    
+  <span class="n">result</span> <span class="o">=</span> <span class="s">''</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">grade</span><span class="p">:</span>
+      <span class="n">result</span> <span class="o">+=</span> <span class="nf">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">' '</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+  <span class="n">이러면</span> <span class="n">성공적으로</span> <span class="n">각각</span> <span class="n">등수를</span> <span class="n">출력하게</span> <span class="n">된다</span><span class="p">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+          <span class="n">nums</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    
+      <span class="n">grade</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">grade</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+              <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+                  <span class="n">grade</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+      <span class="n">result</span> <span class="o">=</span> <span class="s">''</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">grade</span><span class="p">:</span>
+          <span class="n">result</span> <span class="o">+=</span> <span class="nf">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">' '</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>

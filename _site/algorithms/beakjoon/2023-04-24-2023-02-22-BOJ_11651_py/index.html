@@ -1,0 +1,33 @@
+<h3 id="11651번-좌표-정렬하기-2"><a href="https://www.acmicpc.net/problem/11651">11651번: 좌표 정렬하기 2</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">좌표의</span> <span class="n">y를</span> <span class="n">오름차순</span><span class="p">,</span> <span class="n">같은</span> <span class="n">경우</span> <span class="n">x의</span> <span class="n">오름차순으로</span> <span class="n">정렬하는</span> <span class="n">문제이다</span><span class="p">.</span>
+  <span class="n">파이썬에서는</span> <span class="n">해당</span> <span class="n">정렬</span> <span class="n">기준을</span> <span class="n">아래와</span> <span class="n">같이</span> <span class="n">key</span> <span class="n">옵션으로</span> <span class="n">줄</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+  <span class="n">positions</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    
+  <span class="n">이렇게</span> <span class="n">작성하면</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">](</span><span class="n">y</span><span class="p">)</span><span class="n">를</span> <span class="n">기준으로</span> <span class="n">정렬되고</span><span class="p">,</span> <span class="n">같으면</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span><span class="n">를</span>
+  <span class="n">기준으로</span> <span class="n">정렬된다</span><span class="p">.</span>
+    
+  <span class="n">정렬</span> <span class="n">후</span> <span class="n">해당</span> <span class="n">자표들을</span> <span class="n">출력하면</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+  	<span class="nf">print</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">positions</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+          <span class="n">positions</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+      <span class="n">positions</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+      <span class="c1"># print(positions)
+</span>      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="nf">print</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>    </div>
+  </li>
+</ul>

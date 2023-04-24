@@ -1,0 +1,61 @@
+<h3 id="1436번-영화감독-숌"><a href="https://www.acmicpc.net/problem/1436">1436번: 영화감독 숌</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">악마의</span> <span class="n">숫자</span> <span class="mi">666</span><span class="err">!</span>
+  <span class="n">세상의</span> <span class="n">종말을</span> <span class="n">나타낸다고</span> <span class="n">하지만</span> <span class="n">사실상</span> <span class="n">악마의</span> <span class="n">숫자를</span> <span class="n">순화한게</span> <span class="n">아닐까</span><span class="p">..</span><span class="err">?</span>
+    
+  <span class="n">크흠</span> <span class="n">아무튼</span><span class="p">,</span> <span class="n">세상의</span> <span class="n">종말이라는</span> <span class="n">시리즈</span> <span class="n">영화감독으로</span>
+  <span class="n">각</span> <span class="n">제목에</span> <span class="mi">666</span><span class="n">이</span> <span class="n">반드시</span> <span class="n">포함하도록</span> <span class="n">넘버링을</span> <span class="n">한다고</span> <span class="n">한다</span><span class="p">.</span>
+    
+  <span class="n">각</span> <span class="n">시리즈를</span> <span class="n">거듭할때</span> <span class="n">마다</span> <span class="mi">666</span><span class="n">을</span> <span class="n">포함하고</span><span class="p">,</span> <span class="n">커져야</span> <span class="n">하기</span> <span class="n">때문에</span>
+  <span class="n">이를</span> <span class="n">구현할</span> <span class="n">방법을</span> <span class="n">생각해봐야한다</span><span class="p">.</span>
+    
+  <span class="mi">666</span><span class="n">을</span> <span class="n">반드시</span> <span class="n">포함한</span> <span class="n">N번째</span> <span class="n">영화에</span> <span class="n">붙는</span> <span class="n">숫자를</span> <span class="n">구하는</span> <span class="n">것이고</span><span class="p">...</span> <span class="n">N이</span> <span class="mi">10</span><span class="p">,</span><span class="mi">000</span>
+  <span class="n">보다</span> <span class="n">작거나</span> <span class="n">같다</span><span class="p">.</span> <span class="n">거기에</span> <span class="mi">2</span><span class="n">초라는</span> <span class="n">시간</span> <span class="n">제한을</span> <span class="n">생각해보면</span>
+    
+  <span class="mi">666</span><span class="n">부터</span> <span class="n">쭉</span> <span class="n">증가</span> <span class="n">시키면서</span> <span class="mi">666</span><span class="n">이</span> <span class="n">포함된</span> <span class="n">경우에</span> <span class="n">카운트하고</span> <span class="n">카운트가</span> <span class="n">N</span>
+  <span class="n">이</span> <span class="n">되는</span> <span class="n">순간에</span> <span class="n">수를</span> <span class="n">더이상</span> <span class="n">증가시키지</span> <span class="n">않으면</span> <span class="n">된다</span><span class="p">.</span>
+    
+  <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="mi">666</span>
+  <span class="nf">while </span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+      <span class="n">st_n</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">st_n</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s">'666'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+          <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
+          <span class="k">break</span>
+      <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+  <span class="n">이를</span> <span class="n">통해서</span> <span class="n">위와</span> <span class="n">같이</span> <span class="n">작성하면</span> <span class="n">된다</span><span class="p">.</span>
+  <span class="n">num</span><span class="o">+</span><span class="mi">1</span> <span class="n">을</span> <span class="n">하기전에</span> <span class="n">count가</span> <span class="n">N번째인지</span> <span class="n">체크하여서</span><span class="p">,</span> 
+  <span class="n">N이라면</span> <span class="n">반복문을</span> <span class="n">break로</span> <span class="n">빠져나온다</span><span class="p">.</span>
+    
+  <span class="n">N번째</span> <span class="n">번호가</span> <span class="n">아니라면</span> <span class="n">if문을</span> <span class="n">통해</span> <span class="n">가지</span> <span class="n">않고</span> <span class="n">그대로</span> <span class="n">코드를</span> <span class="n">실행하기</span> <span class="n">때문에</span> 
+  <span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="n">을</span> <span class="n">하게</span> <span class="n">된다</span><span class="p">.</span>
+    
+  <span class="n">마지막으로</span> <span class="n">N번째에</span> <span class="n">대한</span> <span class="n">번호를</span> <span class="n">출력한다</span><span class="err">!</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">num</span> <span class="o">=</span> <span class="mi">666</span>
+      <span class="nf">while </span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+          <span class="n">st_n</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">st_n</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s">'666'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+              <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
+              <span class="k">break</span>
+          <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+      <span class="nf">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>

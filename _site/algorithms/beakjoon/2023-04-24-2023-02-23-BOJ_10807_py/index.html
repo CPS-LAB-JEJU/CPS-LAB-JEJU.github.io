@@ -1,0 +1,23 @@
+<h3 id="10807번-개수-세기"><a href="https://www.acmicpc.net/problem/10807">10807번: 개수 세기</a></h3>
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    
+  <span class="n">파이썬에서</span> <span class="n">리스트의</span> <span class="n">특정</span> <span class="n">값이</span> <span class="n">몇개가</span> <span class="n">있는지</span> <span class="n">체크하기</span> <span class="n">위해서</span> <span class="n">count를</span> <span class="n">사용할</span> <span class="n">수</span> <span class="n">있습니다</span><span class="p">.</span>
+  <span class="n">nums</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+    
+  <span class="n">이렇게</span> <span class="n">하면</span> <span class="n">nums에</span> <span class="n">V가</span> <span class="n">몇개인지</span> <span class="n">나오기</span> <span class="n">때문에</span> <span class="n">바로</span> <span class="n">출력하면</span> <span class="n">됩니다</span><span class="p">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nf">input</span><span class="p">().</span><span class="nf">split</span><span class="p">()))</span>
+      <span class="n">V</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">())</span>
+      <span class="nf">print</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+</ul>

@@ -9,7 +9,6 @@ order: 1
 
 ## [Algorithms]
 
-* [Backjoon](/beakjoon/)
-
-
-[Level별 풀이]: /solved/
+* [Backjoon](/category/beakjoon/)
+* [언어별 풀이](/tag/language/)
+* [Level별 풀이](/tag/B1/)

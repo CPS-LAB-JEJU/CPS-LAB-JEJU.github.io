@@ -50,10 +50,11 @@ author:
 menu:
   - title:             알고리즘
     url:               /algorithms/
-  - title:             준비 중..
-    url:               /
+  - title:             Tag
+    url:               /tag/
   - title:             About
     url:               /about/
+
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -290,11 +291,11 @@ hydejack:
 
 collections:
   featured_categories:
-    permalink:         /:name/
+    permalink:         /category/:name/
     output:            true
 
   featured_tags:
-    permalink:         /tag-:name/
+    permalink:         /tag/:name/
     output:            true
 
   projects:

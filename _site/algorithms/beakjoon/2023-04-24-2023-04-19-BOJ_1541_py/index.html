@@ -1,0 +1,52 @@
+<p>level: Sliver 2</p>
+
+<h3 id="문제-링크">문제 링크</h3>
+
+<p><a href="https://www.acmicpc.net/problem/1541">1541번: 잃어버린 괄호</a></p>
+
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">+</span><span class="p">,</span><span class="o">-</span><span class="n">가</span> <span class="n">있는</span> <span class="n">식에서</span> <span class="n">괄호를</span> <span class="n">쳐서</span> <span class="n">값을</span> <span class="n">최소로</span> <span class="n">만드는</span> <span class="n">문제이다</span><span class="p">...</span><span class="err">!</span>
+  <span class="n">사실</span> <span class="n">최소로</span> <span class="n">만든다는</span> <span class="n">것에</span> <span class="n">초점을</span> <span class="n">주면</span> <span class="o">-</span><span class="n">가</span> <span class="n">붙은</span> <span class="n">값을</span> <span class="n">크게</span> <span class="n">만들면</span> <span class="n">된다</span><span class="p">.</span> 
+  <span class="n">포인트는</span> <span class="n">괄호를</span> <span class="n">치면</span> <span class="n">분배</span> <span class="n">법칙에</span> <span class="n">의해서</span> <span class="o">+</span><span class="n">를</span> <span class="o">-</span><span class="n">로</span> <span class="n">바꿀</span> <span class="n">수</span> <span class="n">있다는</span> <span class="n">점이다</span><span class="p">.</span>
+    
+  <span class="n">따라서</span> <span class="o">-</span> <span class="n">와</span> <span class="o">-</span> <span class="n">사이에</span> <span class="n">것들을</span> <span class="n">괄호치면</span> <span class="n">된다</span><span class="p">.</span> <span class="n">이를</span> <span class="n">이용하면</span><span class="p">...</span>
+    
+  <span class="mf">1.</span> <span class="o">+</span><span class="n">를</span> <span class="s">' '</span><span class="n">로</span> <span class="n">대체하고</span><span class="p">,</span> <span class="o">-</span><span class="n">를</span> <span class="s">' -'</span><span class="n">로</span> <span class="n">대체한다</span><span class="p">.</span> <span class="p">(</span><span class="n">공백이</span> <span class="n">무조건</span> <span class="n">있어야</span> <span class="n">한다</span><span class="p">.)</span>
+  <span class="mf">2.</span> <span class="n">공백이</span> <span class="n">있다면</span> <span class="n">split을</span> <span class="n">이용할</span> <span class="n">수</span> <span class="n">있기</span> <span class="n">때문에</span> <span class="n">이를</span> <span class="n">리스트로</span> <span class="n">넣을</span> <span class="n">수</span> <span class="n">있다</span><span class="p">.</span>
+  <span class="mf">3.</span> <span class="n">list로</span> <span class="n">하나씩</span> <span class="n">살펴가면서</span> <span class="n">음수일</span> <span class="n">때</span> <span class="n">플래그를</span> <span class="n">활성화</span> <span class="n">시키고</span><span class="p">,</span> <span class="n">이후</span> <span class="n">나오는</span> <span class="n">양수는</span> <span class="o">-</span><span class="n">로</span> <span class="n">치환한다</span><span class="p">.</span> <span class="p">(</span><span class="n">플래그를</span> <span class="n">negative로</span> <span class="n">정의함</span><span class="p">)</span>
+  <span class="mf">4.</span> <span class="n">만약</span> <span class="n">음수</span> <span class="n">플래그에</span> <span class="n">음수라면</span> <span class="n">그대로</span> <span class="o">+</span> <span class="n">시킨다</span><span class="p">.</span>
+    
+  <span class="n">이러면</span> <span class="o">-</span><span class="n">와</span> <span class="o">-</span><span class="n">사이의</span> <span class="n">값을</span> <span class="n">괄호친</span> <span class="n">것과</span> <span class="n">동일하다</span><span class="p">.</span> 
+    
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">sys</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+      <span class="n">strings</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">()</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">strings</span> <span class="o">=</span> <span class="n">strings</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="s">'+'</span><span class="p">,</span> <span class="s">' '</span><span class="p">).</span><span class="nf">replace</span><span class="p">(</span><span class="s">'-'</span><span class="p">,</span> <span class="s">' -'</span><span class="p">)</span>
+      <span class="n">nums</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">strings</span><span class="p">.</span><span class="nf">split</span><span class="p">())</span>
+      <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">negative</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+          <span class="n">num</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">negative</span> <span class="o">=</span> <span class="mi">1</span>
+              <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">if</span> <span class="n">negative</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                  <span class="nb">sum</span> <span class="o">-=</span> <span class="n">num</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
+    
+      <span class="nf">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
