@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "REST_API"
+title: "Django JWT"
 description: >
-  REST API 이론
+  Django JWT
 tags: [django]
 sitemap: false
 ---
 
-# Django 로그인&회원가입 JWT 로 구현
+# Django 회원가입 JWT 로 구현
 
 기존 로그인 방식으로는 세션과 JWT 를 이용한 방식이 있다. JWT에 대해서는 아래 글에서 설명하였다. 이번에는 Django에서 JWT 로그인 방식을 구현하는 지 소개한다.
 
