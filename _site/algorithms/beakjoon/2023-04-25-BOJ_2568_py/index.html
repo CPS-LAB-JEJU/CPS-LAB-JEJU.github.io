@@ -1,0 +1,128 @@
+<h3 id="문제-링크">문제 링크</h3>
+
+<p><a href="https://www.acmicpc.net/problem/2568">2568번: 전깃줄 - 2</a></p>
+
+<ul>
+  <li>
+    <p>해설</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">우선</span> <span class="n">문제에서</span> <span class="n">요구하는</span> <span class="n">것은</span> <span class="mi">2</span><span class="n">가지이다</span><span class="p">.</span>
+  <span class="n">최소로</span> <span class="n">제거해야하는</span> <span class="n">전깃줄의</span> <span class="n">수와</span> <span class="n">제거할</span> <span class="n">전기줄의</span> <span class="n">번호이다</span><span class="p">.</span>
+    
+  <span class="n">제거할</span> <span class="n">전깃줄의</span> <span class="n">수는</span> <span class="n">이분</span> <span class="n">탐색을</span> <span class="n">돌려서</span><span class="p">,</span> <span class="n">이전</span> <span class="n">길이</span><span class="p">(</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">의</span> <span class="n">값이</span> <span class="n">현재</span> <span class="n">탐색하는</span> <span class="n">수보다</span> <span class="n">큰</span> <span class="n">경우</span>
+  <span class="n">cnt를</span> <span class="n">업데이트</span> <span class="n">하여서</span> <span class="n">최종</span> <span class="n">cnt</span> <span class="n">값을</span> <span class="n">모든</span> <span class="n">전깃줄</span> <span class="n">수에서</span> <span class="n">빼면</span> <span class="n">완료이다</span><span class="p">.</span>
+    
+  <span class="n">여기까지</span> <span class="n">코드는</span> <span class="n">다음과</span> <span class="n">같다</span><span class="p">.</span>
+  <span class="kn">import</span> <span class="n">sys</span>
+    
+  <span class="k">def</span> <span class="nf">bs</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="nf">while</span><span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">):</span>
+          <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span><span class="o">+</span><span class="n">right</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+          <span class="k">if</span> <span class="n">lis</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+              <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span>
+      <span class="k">return</span> <span class="n">left</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
+      <span class="n">elec</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">()</span>
+      <span class="n">keys</span> <span class="o">=</span> <span class="nf">list</span><span class="p">()</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+          <span class="n">keys</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+          <span class="n">elec</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+    
+      <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+            
+      <span class="n">keys</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span> <span class="o">//</span> <span class="n">이분탐색을</span> <span class="n">위해</span> <span class="n">정렬한다</span><span class="p">.</span>
+      <span class="n">lis</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+      <span class="n">lis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">elec</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    
+      <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+          <span class="n">value</span> <span class="o">=</span> <span class="n">elec</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+          <span class="k">if</span> <span class="n">lis</span><span class="p">[</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+              <span class="n">lis</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+              <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+              <span class="n">right</span> <span class="o">=</span> <span class="n">cnt</span>
+              <span class="n">ind</span> <span class="o">=</span> <span class="nf">bs</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+              <span class="n">lis</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    
+  		<span class="nf">print</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">cnt</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <p>처음에는 cnt 업데이트 시 길이, 즉 수열이 증가하는 것이니까. 증가할 때마다 이전 수열과 값을 저장하고 나중에 출력하면 된다. 각각 lis[길이] 와 값을 비교할 때 분기처리가 되는데 각각 아래와 같이 추가하면, 겹치지 않는 최적의 수열을 구할 수 있다.</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="n">lis</span><span class="p">[</span><span class="n">길이</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">elec</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+      <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">][:]</span>
+      <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="p">].</span><span class="nf">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">ind</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="o">-</span><span class="mi">1</span><span class="p">][:]</span>
+          <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="p">].</span><span class="nf">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</code></pre></div>    </div>
+
+    <p>그 다음은 간단하다. group[cnt-1] 이 전깃줄이 겹치지 않는 최적의 수열이기때문에 해당 수열을 제외한 모든 값을 출력하면 된다.</p>
+  </li>
+  <li>
+    <p>답안</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">sys</span>
+    
+  <span class="k">def</span> <span class="nf">bs</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+      <span class="nf">while</span><span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">):</span>
+          <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span><span class="o">+</span><span class="n">right</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+          <span class="k">if</span> <span class="n">lis</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+              <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span>
+      <span class="k">return</span> <span class="n">left</span>
+    
+  <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+      <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">())</span>
+      <span class="n">elec</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">()</span>
+      <span class="n">keys</span> <span class="o">=</span> <span class="nf">list</span><span class="p">()</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+          <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="nf">readline</span><span class="p">().</span><span class="nf">split</span><span class="p">())</span>
+          <span class="n">keys</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+          <span class="n">elec</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+    
+      <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+            
+      <span class="n">keys</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span>
+      <span class="n">lis</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+      <span class="n">group</span> <span class="o">=</span> <span class="nf">dict</span><span class="p">()</span>
+      <span class="n">lis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">elec</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    
+      <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+          <span class="n">value</span> <span class="o">=</span> <span class="n">elec</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+          <span class="k">if</span> <span class="n">lis</span><span class="p">[</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span>
+              <span class="n">lis</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+              <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">][:]</span>
+              <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="p">].</span><span class="nf">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+              <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+              <span class="n">right</span> <span class="o">=</span> <span class="n">cnt</span>
+              <span class="n">ind</span> <span class="o">=</span> <span class="nf">bs</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+              <span class="n">lis</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+              <span class="k">if</span> <span class="n">ind</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                  <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="o">-</span><span class="mi">1</span><span class="p">][:]</span>
+                  <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="p">].</span><span class="nf">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+              <span class="k">else</span><span class="p">:</span>
+                  <span class="n">group</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                
+                
+    
+      <span class="nf">print</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">cnt</span><span class="p">)</span>
+    
+      <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="n">cnt</span><span class="o">-</span><span class="mi">1</span><span class="p">][:]:</span>
+              <span class="nf">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>

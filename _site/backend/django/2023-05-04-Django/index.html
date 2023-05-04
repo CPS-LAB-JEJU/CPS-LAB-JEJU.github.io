@@ -1,0 +1,204 @@
+<p>기존 로그인 방식으로는 세션과 JWT 를 이용한 방식이 있다. JWT에 대해서는 아래 글에서 설명하였다. 이번에는 Django에서 JWT 로그인 방식을 구현하는 지 소개한다.</p>
+
+<p><a href="/backend/web/2023-05-04-JWT/">JWT</a></p>
+
+<p><br /></p>
+
+<p><strong>세팅</strong></p>
+
+<p>우선 djangorestframework–simplejwt 와 django_rest_auth 를 패키지를 Django 프로젝트에 추가시킨다.</p>
+
+<p><br /></p>
+
+<p><a href="https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html#requirements">Getting started — Simple JWT 5.2.2.post16+gf298efa documentation</a></p>
+
+<p><br /></p>
+
+<p>그리고 위 문서에도 나타나 있듯이 Django 세팅 파일에 다음과 같이 추가해주어야 인증 시 JWT를 이용하게 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">REST_FRAMEWORK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="s">'DEFAULT_AUTHENTICATION_CLASSES'</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">...</span>
+        <span class="s">'rest_framework_simplejwt.authentication.JWTAuthentication'</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>그러면 이제 해당 패키지 내부의 있는 기능들을 하나씩 사용할 수 있다. 간단히 회원가입 시 JWT 를 발급해주는 것 부터 시작하자.</p>
+
+<p><br />
+<br /></p>
+
+<p><strong>준비 과정</strong></p>
+
+<p>우선 발급하기에 앞서서 회원가입에 필요한 유저 아이디, 패스워드를 받는 api를 구성해야한다. 간단히… User 모델을 만들고..</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">email.policy</span> <span class="kn">import</span> <span class="n">default</span>
+<span class="kn">from</span> <span class="n">importlib.metadata</span> <span class="kn">import</span> <span class="n">requires</span>
+<span class="kn">from</span> <span class="n">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">AbstractUser</span>
+<span class="kn">from</span> <span class="n">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">PermissionsMixin</span>
+<span class="kn">from</span> <span class="n">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">UserManager</span>
+<span class="kn">from</span> <span class="n">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">AbstractUser</span><span class="p">,</span> <span class="n">PermissionsMixin</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="nc">CharField</span><span class="p">(</span>
+        <span class="s">"아이디"</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+        <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="nc">CharField</span><span class="p">(</span>
+        <span class="s">"이름"</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s">""</span><span class="p">,</span>
+        <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s">"users"</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s">"user"</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s">"users"</span>
+        <span class="n">swappable</span> <span class="o">=</span> <span class="s">"AUTH_USER_MODEL"</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">"[</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="nb">id</span><span class="si">}</span><span class="s">] </span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s">"</span>
+</code></pre></div></div>
+
+<p>마이그레이션을 하고 진행하자.</p>
+
+<p><br /></p>
+
+<p>이제 view를 구성해서 간단히 작성하면 다음과 같다. 이름은 Register라는 이름으로 많이 붙이는데 본인이 원하는 이름으로 잘 작성하자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">UserSignUpView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">all</span><span class="p">()</span>
+    <span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserSignUpSerializer</span>
+
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="nc">UserSignUpSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">serializer</span><span class="p">.</span><span class="nf">is_valid</span><span class="p">():</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">serializer</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nc">Response</span><span class="p">(</span><span class="n">serializer</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>코드를 보면 알겠지만, serializer에 맞는 데이터가 들어오면 user를 생성하도록 구성했다. 만약 invalid한 값이 있다면 400에러가 나타날 것이다. 여기서 serializer는 회원가입시 유저아이디, 패스워드를 정의하고 save 메소드도 정의해두었다.</p>
+
+<p><br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">UserSignUpSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="nf">get_user_model</span><span class="p">()</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">"username"</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"password"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="nf">super</span><span class="p">().</span><span class="nf">save</span><span class="p">()</span>
+        <span class="n">user</span><span class="p">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">validated_data</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span>
+        <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">validated_data</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span>
+        <span class="n">user</span><span class="p">.</span><span class="nf">set_password</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">validated_data</span><span class="p">[</span><span class="s">"password"</span><span class="p">])</span>
+        <span class="n">user</span><span class="p">.</span><span class="nf">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">user</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이렇게 해두면, 요청을 보낼때 값에 맞게 user가 생성된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/47859845/236109047-ca59501d-eaa1-4125-bae0-2b2147ef089a.png" alt="Screen Shot 2023-04-20 at 4 42 09 PM" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>참고</p>
+
+    <p><a href="https://stackoverflow.com/questions/45100515/what-is-the-different-between-save-create-and-update-in-django-rest-fram">What is the different between save(), create() and update () in django rest framework?</a></p>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<p><strong>Token 발급</strong></p>
+
+<p>Token은 실제 유저를 인증하기 위한 토큰이다. 회원가입이나 로그인시 해당 토큰을 서버에서 발급하면, 클라이언트 브라우저에 쿠키로 심도록 한다. 토큰을 발급하려면 암호화나 기타 등등 확인해야하는데, simplejwt 내부 코드들을 사용하면 편리하다.</p>
+
+<p>토큰을 발급하는 역할을 하는 것은 <code class="language-plaintext highlighter-rouge">TokenObtainPairView</code> 와  <code class="language-plaintext highlighter-rouge">TokenObtainPairSerializer</code> 에서 이루어진다. 두개 모두 Base에서 상속받아 사용하는데, 간단히 유저 인증을 하고, 해당 serializer에서 각각 assess, refresh 토큰을 전달한다. view는 해당 data를 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TokenObtainPairSerializer</span><span class="p">(</span><span class="n">TokenObtainSerializer</span><span class="p">):</span>
+    <span class="n">token_class</span> <span class="o">=</span> <span class="n">RefreshToken</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="nf">super</span><span class="p">().</span><span class="nf">validate</span><span class="p">(</span><span class="n">attrs</span><span class="p">)</span>
+
+        <span class="n">refresh</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_token</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">user</span><span class="p">)</span>
+
+        <span class="n">data</span><span class="p">[</span><span class="s">"refresh"</span><span class="p">]</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">refresh</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="s">"access"</span><span class="p">]</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">refresh</span><span class="p">.</span><span class="n">access_token</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">api_settings</span><span class="p">.</span><span class="n">UPDATE_LAST_LOGIN</span><span class="p">:</span>
+            <span class="nf">update_last_login</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">user</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">data</span>
+</code></pre></div></div>
+
+<p>여기까지 보면 잘 와닿지 않은데, 우리에게 필요한 것은 우리 회원가입 플로우에서 토큰을 발급하는 역할이다. 즉, user 정보를 토대로 토큰 발급하는 기능을 패키지에서 찾아볼 것이다. 위 코드를 보면 <code class="language-plaintext highlighter-rouge">self.get_token(self.user)</code> 라는 코드가 보인다. <code class="language-plaintext highlighter-rouge">TokenObtainSerializer</code> 를 확인하면 user 값을 통해 토큰을 리턴해주는 클래스 메소드가 있기 때문에 이를 이용한다.</p>
+
+<p><br /></p>
+
+<p>회원가입 API View에 다음과 같이 추가한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+    <span class="n">serializer</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">serializer_class</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"serializer:"</span><span class="p">,</span> <span class="n">serializer</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"is_valid:"</span><span class="p">,</span> <span class="n">serializer</span><span class="p">.</span><span class="nf">is_valid</span><span class="p">())</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"errors:"</span><span class="p">,</span> <span class="n">serializer</span><span class="p">.</span><span class="n">errors</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">serializer</span><span class="p">.</span><span class="nf">is_valid</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">serializer</span><span class="p">.</span><span class="nf">save</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">TokenObtainPairSerializer</span><span class="p">.</span><span class="nf">get_token</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">refresh_token</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="n">access_token</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">access_token</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nc">Response</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s">"user"</span><span class="p">:</span> <span class="n">serializer</span><span class="p">.</span><span class="n">data</span><span class="p">,</span>
+                <span class="s">"message"</span><span class="p">:</span> <span class="s">"register successs"</span><span class="p">,</span>
+                <span class="s">"token"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s">"access"</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span>
+                    <span class="s">"refresh"</span><span class="p">:</span> <span class="n">refresh_token</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">.</span><span class="n">HTTP_200_OK</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">res</span><span class="p">.</span><span class="nf">set_cookie</span><span class="p">(</span><span class="s">"access"</span><span class="p">,</span> <span class="n">access_token</span><span class="p">,</span> <span class="n">httponly</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">.</span><span class="nf">set_cookie</span><span class="p">(</span><span class="s">"refresh"</span><span class="p">,</span> <span class="n">refresh_token</span><span class="p">,</span> <span class="n">httponly</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="k">return</span> <span class="nc">Response</span><span class="p">(</span><span class="n">serializer</span><span class="p">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>TokenObtainPairSerializer.get_token(user) 를 통해 회원가입한 user 정보를 토대로 token을 생성하고, 해당 token 값들을 Reponse로 보내준다…</p>
+
+<p><img src="https://user-images.githubusercontent.com/47859845/236109054-bdea232a-08af-4a8f-adfb-c380f94fa54b.png" alt="Screen Shot 2023-04-20 at 4 45 08 PM" /></p>
+
+<p>브라우저에서 회원가입 응답을 확인하면 위와 같이 Set-Cookie 헤더가 있는 것을 볼 수 있다. 이제 클라이언트 코드에서 해당 헤더를 토대로 브라우저 쿠키에 설정해주면 된다.</p>
+
+<p><br /></p>
+
+<p>아래와 같은 코드를 통해서 쿠키값을 넣어준다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/47859845/236109140-191b1e9f-76a4-46a7-a3b5-abd3848754d9.png" alt="Screen Shot 2023-04-20 at 7 34 30 PM" /></p>
+
+<p>아래와 같이 헤더에 있는 값이 지정된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/47859845/236109057-6cc5e45d-9216-4e57-91b4-f084ca02ce8d.png" alt="Screen Shot 2023-04-20 at 7 35 24 PM" /></p>
+
+<p><br /></p>
+
+<p>여기서 HttpOnly와 Secure을 지정해주는 것이 좋다. 토큰이 브라우저에 남는 것이 보안상 문제가 될 수 있기 때문에 HttpOnly를 통해서 내용을 볼수 없도록 하는 것이다. 또한, 토큰을 보낼 때 Same-site 옵션도 주는 것이 좋다.</p>
+
+<p><br />
+<br /></p>

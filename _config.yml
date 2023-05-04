@@ -50,8 +50,8 @@ author:
 menu:
   - title:             알고리즘
     url:               /algorithms/
-  - title:             준비중
-    url:               /
+  - title:             벡엔드 관련
+    url:               /backend/
   - title:             About
     url:               /about/
 
