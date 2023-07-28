@@ -219,5 +219,9 @@ TokenObtainPairSerializer.get_token(user) 를 통해 회원가입한 user 정보
 여기서 HttpOnly와 Secure을 지정해주는 것이 좋다. 토큰이 브라우저에 남는 것이 보안상 문제가 될 수 있기 때문에 HttpOnly를 통해서 내용을 볼수 없도록 하는 것이다. 또한, 토큰을 보낼 때 Same-site 옵션도 주는 것이 좋다.
 
 
+**참고자료**
+
+[crudfile](./django_crud.pdf)
+
 <br>
 <br>
